@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #111;
+    color: white;
+    font-family: sans-serif;
+}
+
+canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
