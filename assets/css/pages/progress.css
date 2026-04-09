@@ -1,0 +1,55 @@
+.profile-card {
+    display: grid;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    background: var(--color-dark);
+    color: var(--color-dark-text);
+}
+
+.profile-card h3 { color: var(--color-dark-text); }
+.profile-card .eyebrow { color: var(--color-dark-text-muted); }
+
+.profile-card__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--color-dark-surface);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-gold);
+    font-size: var(--step-1);
+}
+
+.profile-card__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.progress-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+    padding: 0 var(--space-md);
+}
+
+.progress-metrics .metric-card {
+    padding: var(--space-md);
+}
+
+.activity-list {
+    display: grid;
+    gap: 0;
+}
+
+.activity-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-line);
+    font-size: var(--step--1);
+    color: var(--color-ink-muted);
+}
+
+.external-proof { display: grid; gap: var(--space-md); }

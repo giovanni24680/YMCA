@@ -2,19 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YMCA WebGL MVP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Oulm — A softer way to show up</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
+<body data-page="index">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-noise"></div>
+    <main class="index-gate" id="main">
+        <section class="index-gate__card" aria-labelledby="index-gate-title">
+            <div class="index-gate__brand">
+                <span class="index-gate__brand-name">Oulm</span>
+                <span class="eyebrow">by One YMCA</span>
+            </div>
+            <h1 id="index-gate-title">Opening the<br>community Homebase.</h1>
+            <p class="lede">Touch-first static MVP for mobile, tablet, desktop, and kiosk.</p>
+            <div class="index-gate__actions">
+                <a class="button" href="homebase.html">Enter Homebase</a>
+                <a class="button--ghost" href="events.html">Events</a>
+            </div>
+            <div class="index-gate__status" aria-live="polite">
+                <span class="eyebrow" data-index-status>Preparing Homebase...</span>
+            </div>
+            <div
+                class="index-gate__meter"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                aria-label="Loading Homebase"
+            >
+                <span data-index-meter></span>
+            </div>
+            <p class="index-gate__hint">Herts / Beds / Bucks</p>
+        </section>
+    </main>
     <script type="module" src="main.js"></script>
 </body>
 </html>

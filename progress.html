@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Oulm — Progress</title>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages/progress.css">
+</head>
+<body data-page="progress">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app">
+    <header class="app-bar">
+        <h1 class="app-bar__title">Progress</h1>
+        <button class="app-bar__action" type="button" data-export-state data-export-filename="oulm-export.json" aria-label="Export data">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+    </header>
+
+    <main class="screen" id="main">
+        <section class="screen__pad">
+            <div class="profile-card" id="profile-card">
+                <div class="profile-card__head">
+                    <div class="profile-card__avatar">O</div>
+                    <div class="stack--tight">
+                        <h3>Newcomer</h3>
+                        <span class="eyebrow">Oulm Portfolio</span>
+                    </div>
+                </div>
+                <div class="role-ladder" id="role-ladder"></div>
+            </div>
+        </section>
+
+        <div class="progress-metrics" id="progress-metrics"></div>
+
+        <section class="screen__section">
+            <div class="stack">
+                <span class="eyebrow">Signals</span>
+                <div class="signal-grid" id="progress-signals"></div>
+            </div>
+        </section>
+
+        <section class="screen__section">
+            <div class="stack">
+                <span class="eyebrow">Recent activity</span>
+                <ul class="activity-list" id="progress-history" role="list"></ul>
+                <div id="progress-rsvp"></div>
+            </div>
+        </section>
+
+        <section class="screen__section">
+            <div class="stack">
+                <span class="eyebrow">External proof scaffold</span>
+                <form class="form-grid" id="external-links-form">
+                    <div class="field">
+                        <label for="github-link">GitHub</label>
+                        <input id="github-link" name="github" type="url" placeholder="https://github.com/you">
+                    </div>
+                    <div class="field">
+                        <label for="linkedin-link">LinkedIn</label>
+                        <input id="linkedin-link" name="linkedin" type="url" placeholder="https://linkedin.com/in/you">
+                    </div>
+                    <div class="field">
+                        <label for="project-link">Project link</label>
+                        <input id="project-link" name="project" type="url" placeholder="https://example.com/project">
+                    </div>
+                    <button class="button" type="submit">Save proof</button>
+                    <p id="external-links-feedback" class="eyebrow"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="screen__section">
+            <div class="stack" style="text-align:center">
+                <a class="button-link" href="partners.html">Partner pathways</a>
+                <a class="button-link" href="about.html">About Oulm</a>
+            </div>
+        </section>
+    </main>
+
+    <nav class="tab-bar" aria-label="Main">
+        <a href="homebase.html" class="tab-bar__item" data-tab="homebase">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span class="tab-bar__label">Home</span>
+        </a>
+        <a href="events.html" class="tab-bar__item" data-tab="events">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="tab-bar__label">Events</span>
+        </a>
+        <a href="map.html" class="tab-bar__item" data-tab="map">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="tab-bar__label">Map</span>
+        </a>
+        <a href="host.html" class="tab-bar__item" data-tab="host">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <span class="tab-bar__label">Host</span>
+        </a>
+        <a href="progress.html" class="tab-bar__item" data-tab="progress">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span class="tab-bar__label">Progress</span>
+        </a>
+    </nav>
+</div>
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

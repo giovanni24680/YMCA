@@ -1,0 +1,35 @@
+.friction-principles {
+    display: grid;
+    gap: var(--space-md);
+    counter-reset: friction;
+}
+
+.friction-principles li {
+    counter-increment: friction;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.friction-principles li::before {
+    content: counter(friction, decimal-leading-zero);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    color: var(--color-ink-faint);
+    line-height: 1;
+}
+
+.status-board { display: grid; gap: var(--space-sm); }
+
+.status-board article {
+    padding: var(--space-md);
+    border-left: 3px solid var(--color-line);
+    display: grid;
+    gap: var(--space-2xs);
+}
+
+.status-board article:nth-child(1) { border-color: var(--color-sage); }
+.status-board article:nth-child(2) { border-color: var(--color-bronze); }
+.status-board article:nth-child(3) { border-color: var(--color-blue); }

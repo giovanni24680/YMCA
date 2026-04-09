@@ -1,39 +1,83 @@
-# YMCA WebGL MVP
+# Oulm Static MVP
 
-A prototype WebGL application built with Three.js, intended to be hosted directly on GitHub Pages. This repository also houses the initial Apple Xcode project for the native iOS application.
+Oulm is a static multi-page community MVP for One YMCA, designed around the idea that the real barrier to participation is the anxiety of showing up, not account creation.
 
-## Overview
+This repository contains:
+- a touch-first static web prototype built with plain HTML, CSS, and JavaScript
+- ambient Three.js moments used selectively as visual framing
+- a Leaflet map page for county and venue discovery
+- a parallel Xcode project that teammates can later use to recreate the experience natively
 
-This project serves as a Minimal Viable Product (MVP) containing both native Swift components and a responsive web-based 3D scene using static HTML/JS/CSS.
+## Web Structure
+
+The website is organized around a small shared design system:
+
+- `homebase.html`
+- `events.html`
+- `event-detail.html`
+- `rsvp.html`
+- `onboarding.html`
+- `map.html`
+- `host.html`
+- `booking.html`
+- `progress.html`
+- `partners.html`
+- `about.html`
+
+Shared assets live in:
+
+- `assets/css/`
+- `assets/js/`
+- `assets/media/`
+- `docs/`
+
+## Design System Layers
+
+- `assets/css/tokens.css`: color, typography, spacing, radii, shadows, motion
+- `assets/css/base.css`: resets, body styles, typography foundations
+- `assets/css/layout.css`: shell, grid, header, footer, section primitives
+- `assets/css/components.css`: cards, buttons, chips, modals, stepper, form patterns
+- `assets/css/pages/`: page-specific styling only where necessary
+
+## Interaction Model
+
+The prototype uses localStorage to persist faux app state:
+
+- `oulm_rsvp`
+- `oulm_profile_seed`
+- `oulm_booking_draft`
+- `oulm_progress`
+- `oulm_external_signals`
+
+Every major page includes an `Export JSON` action so the local state can be downloaded as a single artifact.
 
 ## Running Locally
 
-Since this uses ES Modules for Three.js, you need to run a local web server to avoid CORS issues.
+Because the site uses ES modules, open it through a local web server instead of double-clicking the HTML files.
 
 Using Python:
+
 ```bash
 python -m http.server 8000
 ```
 
-Using Node.js:
-```bash
-npx serve .
-```
-
-Then open `http://localhost:8000` (or the URL provided by your server) in your browser.
+Then open `http://localhost:8000`.
 
 ## Deployment
 
-This web app is designed to be easily deployed to **GitHub Pages**. 
-1. Go to your repository settings on GitHub.
-2. Navigate to "Pages".
-3. Select the `main` branch and `/ (root)` folder (or whichever folder contains your `index.html`).
-4. Save and wait for the deployment to finish.
+The site is intended for GitHub Pages or any static host.
+
+1. Push the repository.
+2. Point your host at the repo root.
+3. Use `index.html` as the entry file.
 
 ## Tech Stack
-- **Web**: HTML5, CSS3, JavaScript (ES6 Modules)
-- **3D Graphics**: [Three.js](https://threejs.org/)
-- **Native**: Swift, Xcode
+
+- Web: HTML5, CSS3, JavaScript modules
+- Motion / ambience: [Three.js](https://threejs.org/)
+- Map: [Leaflet](https://leafletjs.com/)
+- Native scaffold: Swift / Xcode
 
 ## License
+
 [MIT License](LICENSE)

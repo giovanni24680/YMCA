@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oulm Wireframe Board</title>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <style>
+        html, body {
+            height: auto;
+            overflow: auto;
+            background: #f7f3ec;
+        }
+
+        .board {
+            width: min(calc(100% - 1.5rem), 1600px);
+            margin: 0 auto;
+            padding: 2rem 0 4rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .lane {
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px dashed rgba(61, 40, 36, 0.24);
+            border-radius: 1rem;
+            background: rgba(255, 252, 247, 0.75);
+        }
+
+        .lane__cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .frame {
+            min-height: 180px;
+            padding: 1rem;
+            border: 2px solid rgba(61, 40, 36, 0.42);
+            border-radius: 1rem;
+            background: white;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .frame__bar {
+            height: 0.7rem;
+            border-radius: 999px;
+            background: rgba(61, 40, 36, 0.12);
+        }
+
+        .frame__line {
+            height: 0.55rem;
+            border-radius: 999px;
+            background: rgba(61, 40, 36, 0.1);
+        }
+
+        .frame__line.short {
+            width: 60%;
+        }
+
+        .arrow {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-ink-muted);
+        }
+    </style>
+</head>
+<body>
+    <main class="board">
+        <section class="lane">
+            <div>
+                <span class="eyebrow">Single-board low-fi map</span>
+                <h1>Oulm sitemap and core flow</h1>
+            </div>
+            <div class="lane__cards">
+                <article class="frame"><strong>Homebase</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Events</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Map</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Host</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Progress</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+            </div>
+        </section>
+
+        <section class="lane">
+            <div class="arrow">Homebase -> Events -> Event detail -> RSVP -> Onboarding</div>
+            <div class="lane__cards">
+                <article class="frame"><strong>Homebase hero</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Events list</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Event detail</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Soft RSVP</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Matchmaking picks</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+            </div>
+        </section>
+
+        <section class="lane">
+            <div class="arrow">Homebase -> Map -> Venue modal -> Event link</div>
+            <div class="lane__cards">
+                <article class="frame"><strong>County map</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
+                <article class="frame"><strong>Venue list</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
+                <article class="frame"><strong>Venue modal</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+            </div>
+        </section>
+
+        <section class="lane">
+            <div class="arrow">Homebase -> Host -> Booking wizard -> Pending review</div>
+            <div class="lane__cards">
+                <article class="frame"><strong>Host overview</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
+                <article class="frame"><strong>Wizard step 1</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Wizard step 2-4</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
+                <article class="frame"><strong>Review state</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+            </div>
+        </section>
+
+        <section class="lane">
+            <div class="arrow">Attendance -> Host points -> Verified hours -> External proof</div>
+            <div class="lane__cards">
+                <article class="frame"><strong>Progress dashboard</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
+                <article class="frame"><strong>Signals</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+                <article class="frame"><strong>Partner pathways</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
