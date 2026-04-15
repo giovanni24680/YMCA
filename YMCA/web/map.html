@@ -42,12 +42,14 @@
                 <p class="map-wayfinding__lede">Tap a marker, then follow the sheet — nearest <span class="brand-mark brand-mark--ymca brand-inline brand-inline--ymca" role="img" aria-label="YMCA"></span> anchor first, then the venue story.</p>
             </div>
         </div>
-        <div id="leaflet-map" data-leaflet-map aria-label="Venue map"></div>
-        <div class="map-filters">
-            <button class="filter-pill" data-active="true">All</button>
-            <button class="filter-pill">HQ</button>
-            <button class="filter-pill">Flagship</button>
-            <button class="filter-pill">Community</button>
+        <div class="map-body">
+            <div id="leaflet-map" role="application" aria-label="Interactive venue map covering Hertfordshire, Bedfordshire, and Buckinghamshire"></div>
+            <div class="map-filters" role="toolbar" aria-label="Filter venues">
+                <button class="filter-pill" data-active="true" aria-pressed="true">All</button>
+                <button class="filter-pill" aria-pressed="false">HQ</button>
+                <button class="filter-pill" aria-pressed="false">Flagship</button>
+                <button class="filter-pill" aria-pressed="false">Community</button>
+            </div>
         </div>
     </main>
 

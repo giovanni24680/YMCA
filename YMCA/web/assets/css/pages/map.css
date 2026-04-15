@@ -29,16 +29,22 @@
     line-height: 1.5;
 }
 
+.map-body {
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+}
+
 #leaflet-map {
     width: 100%;
-    min-height: 0;
     height: 100%;
+    min-height: 200px;
     z-index: 0;
 }
 
 .map-filters {
     position: absolute;
-    top: var(--space-sm);
+    bottom: var(--space-sm);
     left: var(--space-sm);
     right: var(--space-sm);
     z-index: 10;
@@ -57,8 +63,31 @@
     box-shadow: var(--shadow-sm);
 }
 
+.map-fallback {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: var(--space-lg);
+    text-align: center;
+    background: var(--color-paper-inset);
+    color: var(--color-ink-muted);
+}
+
+.map-fallback__inner {
+    display: grid;
+    gap: var(--space-sm);
+    max-width: 22rem;
+}
+
+.map-fallback__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-inline: auto;
+    stroke: var(--color-ink-faint);
+}
+
 .venue-sheet {
-    position: fixed;
+    position: absolute;
     bottom: var(--tab-bar-h);
     left: 0;
     right: 0;
@@ -96,6 +125,7 @@
     top: 0;
     background: var(--color-paper-elevated);
     z-index: 1;
+    cursor: pointer;
 }
 
 .venue-sheet__handle::after {

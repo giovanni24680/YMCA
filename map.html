@@ -25,7 +25,6 @@
 <body data-page="map">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="app-stage">
-<div class="app-stage__status" aria-hidden="true"><span>9:41</span><span>5G ●●●</span></div>
 <div class="app">
     <header class="app-bar">
         <a href="homebase.html" class="app-bar__logo-link" aria-label="OULM Homebase">
@@ -35,19 +34,19 @@
     </header>
 
     <main class="screen map-screen" id="main">
-        <div class="map-wayfinding" data-reveal>
-            <div class="map-wayfinding__inner">
-                <span class="eyebrow">River Ouse corridor</span>
-                <h2 class="map-wayfinding__title">County wayfinding</h2>
-                <p class="map-wayfinding__lede">Tap a marker, then follow the sheet — nearest <span class="brand-mark brand-mark--ymca brand-inline brand-inline--ymca" role="img" aria-label="YMCA"></span> anchor first, then the venue story.</p>
+        <div class="map-body">
+            <div id="leaflet-map" role="application" aria-label="Interactive venue map covering Hertfordshire, Bedfordshire, and Buckinghamshire"></div>
+            <div class="map-controls">
+                <div class="map-filters" role="toolbar" aria-label="Filter venues">
+                    <button class="filter-pill" data-active="true" aria-pressed="true">All</button>
+                    <button class="filter-pill" aria-pressed="false">HQ</button>
+                    <button class="filter-pill" aria-pressed="false">Flagship</button>
+                    <button class="filter-pill" aria-pressed="false">Community</button>
+                </div>
             </div>
-        </div>
-        <div id="leaflet-map" data-leaflet-map aria-label="Venue map"></div>
-        <div class="map-filters">
-            <button class="filter-pill" data-active="true">All</button>
-            <button class="filter-pill">HQ</button>
-            <button class="filter-pill">Flagship</button>
-            <button class="filter-pill">Community</button>
+            <div class="map-hint">
+                <p>Tap a marker to explore venues across Herts, Beds &amp; Bucks</p>
+            </div>
         </div>
     </main>
 

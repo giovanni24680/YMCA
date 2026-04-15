@@ -24,7 +24,6 @@
 <body data-page="events">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="app-stage">
-<div class="app-stage__status" aria-hidden="true"><span>9:41</span><span>5G ●●●</span></div>
 <div class="app">
     <header class="app-bar">
         <a href="homebase.html" class="app-bar__logo-link" aria-label="OULM Homebase">
@@ -34,14 +33,14 @@
     </header>
 
     <main class="screen" id="main">
-        <div class="filter-bar" data-filter-group data-filter-target=".event-card" data-filter-default="all">
-            <button class="filter-pill" type="button" data-filter-value="all">All</button>
-            <button class="filter-pill" type="button" data-filter-value="Hertfordshire">Herts</button>
-            <button class="filter-pill" type="button" data-filter-value="Bedfordshire">Beds</button>
-            <button class="filter-pill" type="button" data-filter-value="Buckinghamshire">Bucks</button>
-            <button class="filter-pill" type="button" data-filter-value="Food">Food</button>
-            <button class="filter-pill" type="button" data-filter-value="Build">Build</button>
-            <button class="filter-pill" type="button" data-filter-value="Film">Film</button>
+        <div class="filter-bar" role="toolbar" aria-label="Filter events" data-filter-group data-filter-target=".event-card" data-filter-default="all">
+            <button class="filter-pill" type="button" data-filter-value="all" aria-pressed="true">All</button>
+            <button class="filter-pill" type="button" data-filter-value="Hertfordshire" aria-pressed="false">Herts</button>
+            <button class="filter-pill" type="button" data-filter-value="Bedfordshire" aria-pressed="false">Beds</button>
+            <button class="filter-pill" type="button" data-filter-value="Buckinghamshire" aria-pressed="false">Bucks</button>
+            <button class="filter-pill" type="button" data-filter-value="Food" aria-pressed="false">Food</button>
+            <button class="filter-pill" type="button" data-filter-value="Build" aria-pressed="false">Build</button>
+            <button class="filter-pill" type="button" data-filter-value="Film" aria-pressed="false">Film</button>
         </div>
 
         <div class="events-list" id="events-list"></div>

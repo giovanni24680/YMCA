@@ -7,7 +7,9 @@ export function initFilters() {
 
         function applyFilter(value) {
             buttons.forEach((button) => {
-                button.dataset.active = String(button.dataset.filterValue === value);
+                const isActive = button.dataset.filterValue === value;
+                button.dataset.active = String(isActive);
+                button.setAttribute("aria-pressed", String(isActive));
             });
 
             const items = [...document.querySelectorAll(targetSelector)];

@@ -14,12 +14,12 @@
     --color-dark-muted: #3d322c;
     --color-dark-line: rgba(255, 248, 238, 0.1);
     --color-dark-text: #f5ece0;
-    --color-dark-text-muted: rgba(245, 236, 224, 0.55);
+    --color-dark-text-muted: rgba(245, 236, 224, 0.68);
 
     --color-ink: #2e2420;
     --color-ink-strong: #1a1210;
-    --color-ink-muted: #8a7a72;
-    --color-ink-faint: #b5a89e;
+    --color-ink-muted: #786c66;
+    --color-ink-faint: #9e9088;
     --color-line: rgba(46, 36, 32, 0.08);
     --color-line-strong: rgba(46, 36, 32, 0.16);
 
@@ -93,10 +93,10 @@
     --site-wide: 1400px;
     /* Desktop “phone preview” — wide viewports only (see layout.css) */
     --device-frame-breakpoint: 880px;
-    --device-frame-max-w: 25.75rem;
-    --device-frame-aspect: 412 / 915;
-    --device-frame-radius: 2.75rem;
-    --device-stage-bg: #060504;
+    --device-frame-max-w: 23rem;
+    --device-frame-aspect: 9 / 16;
+    --device-frame-radius: 1.5rem;
+    --device-stage-bg: #252018;
     --device-chrome-bg: #ebe6df;
     --device-chrome-dot: #ada298;
 

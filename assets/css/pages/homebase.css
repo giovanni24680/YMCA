@@ -225,17 +225,7 @@
     font-size: var(--step--2);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-bronze);
-    animation: pathRiverHint 5s ease-in-out infinite;
-}
-
-@keyframes pathRiverHint {
-    0%, 100% { opacity: 0.55; }
-    50% { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .path-banner__river-hint { animation: none; opacity: 0.85; }
+    color: var(--color-ink-muted);
 }
 
 .hq-module {
@@ -300,7 +290,8 @@
 
 .tag--busy {
     border-color: rgba(194, 117, 58, 0.35);
-    color: var(--color-bronze);
+    color: var(--color-ink-strong);
+    background: rgba(194, 117, 58, 0.1);
 }
 
 @media (max-width: 400px) {

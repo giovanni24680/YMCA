@@ -14,7 +14,7 @@
     --color-dark-muted: #3d322c;
     --color-dark-line: rgba(255, 248, 238, 0.1);
     --color-dark-text: #f5ece0;
-    --color-dark-text-muted: rgba(245, 236, 224, 0.55);
+    --color-dark-text-muted: rgba(245, 236, 224, 0.68);
 
     --color-ink: #2e2420;
     --color-ink-strong: #1a1210;
@@ -93,9 +93,9 @@
     --site-wide: 1400px;
     /* Desktop “phone preview” — wide viewports only (see layout.css) */
     --device-frame-breakpoint: 880px;
-    --device-frame-max-w: 25.75rem;
-    --device-frame-aspect: 412 / 915;
-    --device-frame-radius: 2.75rem;
+    --device-frame-max-w: 23rem;
+    --device-frame-aspect: 9 / 16;
+    --device-frame-radius: 2.5rem;
     --device-stage-bg: #060504;
     --device-chrome-bg: #ebe6df;
     --device-chrome-dot: #ada298;

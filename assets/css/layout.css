@@ -7,9 +7,7 @@
     height: 100dvh;
 }
 
-.app-stage__status {
-    display: none;
-}
+/* Status bar removed — no faux chrome needed */
 
 .app {
     display: grid;
@@ -210,9 +208,14 @@
 .tab-bar__label {
     font-family: var(--font-body);
     font-size: 0.6rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.01em;
     line-height: 1;
+    color: var(--color-ink-muted);
+}
+
+.tab-bar__item[aria-current="page"] .tab-bar__label {
+    color: inherit;
 }
 
 .stack { display: grid; gap: var(--space-md); }
@@ -312,43 +315,41 @@
         align-items: center;
         justify-content: center;
         padding:
-            max(0.75rem, env(safe-area-inset-top, 0))
-            max(0.75rem, env(safe-area-inset-right, 0))
-            max(0.75rem, env(safe-area-inset-bottom, 0))
-            max(0.75rem, env(safe-area-inset-left, 0));
+            max(1.25rem, env(safe-area-inset-top, 0))
+            max(1.25rem, env(safe-area-inset-right, 0))
+            max(1.25rem, env(safe-area-inset-bottom, 0))
+            max(1.25rem, env(safe-area-inset-left, 0));
         background:
-            radial-gradient(ellipse 70% 50% at 50% 20%, rgba(194, 117, 58, 0.06), transparent 60%),
+            radial-gradient(ellipse 80% 60% at 50% 30%, rgba(194, 117, 58, 0.10), transparent 60%),
+            radial-gradient(ellipse 60% 40% at 70% 70%, rgba(126, 148, 118, 0.05), transparent 50%),
             var(--device-stage-bg);
     }
 
     .app-stage {
         position: relative;
-        width: min(var(--device-frame-max-w), calc(100vw - 2rem));
+        width: min(var(--device-frame-max-w), calc(100vw - 2.5rem));
         aspect-ratio: var(--device-frame-aspect);
-        max-height: calc(100dvh - 2rem);
+        max-height: min(42rem, calc(100dvh - 4rem));
         flex: 0 0 auto;
         margin: auto;
         border-radius: var(--device-frame-radius);
         overflow: hidden;
         box-shadow:
-            0 0 0 1px rgba(255, 248, 238, 0.05),
-            0 24px 80px rgba(0, 0, 0, 0.5),
-            0 8px 24px rgba(0, 0, 0, 0.3);
+            0 0 0 1px rgba(255, 248, 238, 0.08),
+            0 8px 32px rgba(0, 0, 0, 0.35),
+            0 2px 8px rgba(0, 0, 0, 0.2),
+            0 0 120px 20px rgba(194, 117, 58, 0.04);
     }
 
-    .app-stage__status {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-shrink: 0;
-        min-height: 1.35rem;
-        padding: 0 var(--space-md);
-        background: var(--device-chrome-bg);
-        border-bottom: 1px solid rgba(46, 36, 32, 0.06);
-        font-family: var(--font-mono);
-        font-size: 0.52rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: color-mix(in srgb, var(--color-ink-strong) 70%, white);
+    .app-stage .app {
+        position: relative;
     }
+
+    /* Contain fixed-position children inside the device frame */
+    .venue-sheet,
+    .bottom-sheet,
+    .modal {
+        position: absolute;
+    }
+
 }

@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OULM by One YMCA — Woodland Café, Leavesden, youth community across Hertfordshire, Bedfordshire, and Buckinghamshire.">
+    <meta name="description" content="OULM by One YMCA — design process, moodboard, and wireframes.">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#1a1210">
-    <meta name="application-name" content="OULM">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="OULM">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-    <title>OULM Wireframe Board</title>
+    <title>OULM — Design Process</title>
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/branding.css">
@@ -24,118 +19,659 @@
             background: #f7f3ec;
         }
 
-        .board {
-            width: min(calc(100% - 1.5rem), 1600px);
+        .design-page {
+            width: min(calc(100% - 1.5rem), 1400px);
             margin: 0 auto;
-            padding: 2rem 0 4rem;
-            display: grid;
-            gap: 1rem;
+            padding: 2.5rem 0 5rem;
         }
 
+        /* ── Header ── */
+        .design-header {
+            display: grid;
+            gap: 1rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(61, 40, 36, 0.12);
+            margin-bottom: 2.5rem;
+        }
+
+        .design-header__nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .design-header__nav a {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--color-ink-muted);
+        }
+
+        .design-header__nav a:hover { color: var(--color-bronze); }
+
+        .design-header__title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            line-height: 0.95;
+            letter-spacing: 0.04em;
+            color: var(--color-ink-strong);
+        }
+
+        .design-header__lede {
+            max-width: 52rem;
+            font-size: var(--step-0);
+            line-height: 1.65;
+            color: var(--color-ink-muted);
+        }
+
+        .design-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-ink-faint);
+        }
+
+        .design-meta dt { color: var(--color-ink-muted); }
+        .design-meta dd { margin: 0; }
+
+        /* ── Section ── */
+        .design-section {
+            padding: 2.5rem 0;
+            border-top: 1px solid rgba(61, 40, 36, 0.08);
+        }
+
+        .design-section__label {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--color-ink-faint);
+            margin-bottom: 0.75rem;
+        }
+
+        .design-section__heading {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            line-height: 1;
+            letter-spacing: 0.03em;
+            color: var(--color-ink-strong);
+            margin-bottom: 1rem;
+        }
+
+        .design-section__body {
+            max-width: 48rem;
+            font-size: var(--step--1);
+            line-height: 1.65;
+            color: var(--color-ink-muted);
+        }
+
+        /* ── Moodboard ── */
+        .moodboard {
+            display: grid;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .moodboard__item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: var(--color-dark);
+        }
+
+        .moodboard__img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+        }
+
+        .moodboard__caption {
+            padding: 1rem 1.25rem;
+            background: rgba(26, 18, 16, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .moodboard__caption-title {
+            font-family: var(--font-display);
+            font-size: var(--step--1);
+            font-weight: 600;
+            color: var(--color-dark-text);
+        }
+
+        .moodboard__caption-body {
+            margin-top: 0.35rem;
+            font-size: 0.78rem;
+            line-height: 1.55;
+            color: var(--color-dark-text-muted);
+        }
+
+        @media (min-width: 720px) {
+            .moodboard {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+            }
+            .moodboard__item:first-child {
+                grid-row: 1 / 3;
+            }
+        }
+
+        /* ── Principles ── */
+        .principles {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .principles { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 960px) {
+            .principles { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .principle {
+            padding: 1.25rem;
+            border: 1px solid rgba(61, 40, 36, 0.1);
+            border-radius: 1rem;
+            background: rgba(255, 252, 247, 0.7);
+        }
+
+        .principle__number {
+            font-family: var(--font-heading);
+            font-size: var(--step-2);
+            line-height: 1;
+            color: var(--color-bronze);
+        }
+
+        .principle__title {
+            margin-top: 0.5rem;
+            font-family: var(--font-display);
+            font-size: var(--step--1);
+            font-weight: 700;
+            color: var(--color-ink-strong);
+        }
+
+        .principle__body {
+            margin-top: 0.35rem;
+            font-size: 0.78rem;
+            line-height: 1.55;
+            color: var(--color-ink-muted);
+        }
+
+        /* ── Flow / Wireframes ── */
         .lane {
             display: grid;
             gap: 1rem;
-            padding: 1rem;
-            border: 1px dashed rgba(61, 40, 36, 0.24);
+            padding: 1.25rem;
+            border: 1px dashed rgba(61, 40, 36, 0.2);
             border-radius: 1rem;
-            background: rgba(255, 252, 247, 0.75);
+            background: rgba(255, 252, 247, 0.6);
+            margin-top: 1rem;
+        }
+
+        .lane__title {
+            font-family: var(--font-display);
+            font-size: var(--step--1);
+            font-weight: 700;
+            color: var(--color-ink-strong);
         }
 
         .lane__cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-        }
-
-        .frame {
-            min-height: 180px;
-            padding: 1rem;
-            border: 2px solid rgba(61, 40, 36, 0.42);
-            border-radius: 1rem;
-            background: white;
-            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 0.75rem;
         }
 
+        .frame {
+            min-height: 140px;
+            padding: 1rem;
+            border: 2px solid rgba(61, 40, 36, 0.35);
+            border-radius: 0.75rem;
+            background: white;
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .frame strong {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-ink-strong);
+        }
+
         .frame__bar {
-            height: 0.7rem;
+            height: 0.6rem;
             border-radius: 999px;
             background: rgba(61, 40, 36, 0.12);
         }
 
         .frame__line {
-            height: 0.55rem;
+            height: 0.45rem;
             border-radius: 999px;
-            background: rgba(61, 40, 36, 0.1);
+            background: rgba(61, 40, 36, 0.08);
         }
 
-        .frame__line.short {
-            width: 60%;
+        .frame__line.short { width: 60%; }
+
+        .frame__annotation {
+            font-family: var(--font-mono);
+            font-size: 0.56rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-ink-faint);
+            line-height: 1.4;
         }
 
         .arrow {
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             color: var(--color-ink-muted);
         }
+
+        /* ── Decisions ── */
+        .decisions {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 720px) {
+            .decisions { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .decision {
+            padding: 1.25rem;
+            border-left: 3px solid var(--color-bronze);
+            background: rgba(255, 252, 247, 0.7);
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+
+        .decision__q {
+            font-family: var(--font-display);
+            font-size: var(--step--1);
+            font-weight: 600;
+            color: var(--color-ink-strong);
+        }
+
+        .decision__a {
+            margin-top: 0.35rem;
+            font-size: 0.78rem;
+            line-height: 1.55;
+            color: var(--color-ink-muted);
+        }
+
+        /* ── Token Board ── */
+        .token-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .token-swatch {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            display: grid;
+            gap: 0.25rem;
+        }
+
+        .token-swatch__name {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .token-swatch__value {
+            font-family: var(--font-mono);
+            font-size: 0.52rem;
+            opacity: 0.7;
+        }
+
+        .token-swatch--paper   { background: #faf5ee; border: 1px solid rgba(61,40,36,0.1); color: var(--color-ink); }
+        .token-swatch--dark    { background: #1a1210; color: #f5ece0; }
+        .token-swatch--bronze  { background: #c2753a; color: white; }
+        .token-swatch--sage    { background: #7e9476; color: white; }
+        .token-swatch--gold    { background: #daa840; color: white; }
+        .token-swatch--coral   { background: #e08a6a; color: white; }
+        .token-swatch--blue    { background: #7892b0; color: white; }
+        .token-swatch--ink     { background: #2e2420; color: #faf5ee; }
+
+        /* ── Type Samples ── */
+        .type-samples {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .type-sample__label {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-ink-faint);
+            margin-bottom: 0.35rem;
+        }
+
+        .type-sample--heading {
+            font-family: var(--font-heading);
+            font-size: var(--step-4);
+            line-height: 0.95;
+            letter-spacing: 0.04em;
+            color: var(--color-ink-strong);
+        }
+
+        .type-sample--display {
+            font-family: var(--font-display);
+            font-size: var(--step-1);
+            font-weight: 700;
+            color: var(--color-ink-strong);
+        }
+
+        .type-sample--body {
+            font-family: var(--font-body);
+            font-size: var(--step-0);
+            line-height: 1.6;
+            color: var(--color-ink);
+        }
+
+        .type-sample--mono {
+            font-family: var(--font-mono);
+            font-size: var(--step--1);
+            letter-spacing: 0.06em;
+            color: var(--color-ink-muted);
+        }
+
+        /* ── Footer ── */
+        .design-footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(61, 40, 36, 0.12);
+            text-align: center;
+        }
+
+        .design-footer p {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-ink-faint);
+        }
+
+        .design-footer a {
+            color: var(--color-bronze);
+            text-decoration: none;
+        }
+
+        .design-footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <main class="board">
-        <section class="lane">
-            <div>
-                <span class="eyebrow">Single-board low-fi map</span>
-                <h1><span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span> sitemap and core flow</h1>
-            </div>
-            <div class="lane__cards">
-                <article class="frame"><strong>Homebase</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Events</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Map</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Host</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Progress</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+    <main class="design-page">
+
+        <!-- ═══ HEADER ═══ -->
+        <header class="design-header">
+            <nav class="design-header__nav" aria-label="Design page">
+                <a href="homebase.html" aria-label="Back to prototype">
+                    <span class="brand-mark brand-mark--oulm" aria-hidden="true" style="width:4rem;height:1.2rem"></span>
+                </a>
+                <a href="index.html">Open prototype</a>
+            </nav>
+            <h1 class="design-header__title">Design process</h1>
+            <p class="design-header__lede">How we arrived at a community sub-brand that reduces the emotional cost of showing up. This page documents the design arc from research and moodboarding through wireframes, token definition, and the final interactive prototype.</p>
+            <dl class="design-meta">
+                <div><dt>Context</dt><dd>Capstone — One YMCA</dd></div>
+                <div><dt>Region</dt><dd>Herts / Beds / Bucks</dd></div>
+                <div><dt>Platform</dt><dd>PWA + SwiftUI shell</dd></div>
+                <div><dt>Status</dt><dd>Prototype</dd></div>
+            </dl>
+        </header>
+
+        <!-- ═══ 01 RESEARCH INSIGHT ═══ -->
+        <section class="design-section" aria-labelledby="s-insight">
+            <p class="design-section__label">01 — Research insight</p>
+            <h2 class="design-section__heading" id="s-insight">The barrier is emotional, not technical</h2>
+            <p class="design-section__body">Interviews and desk research across three counties revealed a consistent pattern: young people aged 14-25 knew YMCA existed, but could not picture themselves arriving. Awareness was high; attendance intent was low. The gap was not a UX bug — it was a branding and tone problem. OULM exists to close that gap by making arrival feel physically grounded, socially safe, and incrementally rewarding.</p>
+        </section>
+
+        <!-- ═══ 02 MOODBOARD ═══ -->
+        <section class="design-section" aria-labelledby="s-mood">
+            <p class="design-section__label">02 — Moodboard &amp; references</p>
+            <h2 class="design-section__heading" id="s-mood">Visual territory</h2>
+            <p class="design-section__body">We studied three design directions before converging on the warm, editorial, tactile aesthetic that defines OULM. Each reference board captured a different tension: institutional trust vs. youth energy, digital utility vs. physical place, and minimal modernism vs. lived-in warmth.</p>
+
+            <div class="moodboard">
+                <figure class="moodboard__item">
+                    <img class="moodboard__img" src="assets/moodboard/ref-folio-keys-access.png" alt="Three mobile screens showing Folio, Knowledge Base, and Access card layouts in warm dark tones with serif typography and blueberry photography" loading="lazy">
+                    <figcaption class="moodboard__caption">
+                        <p class="moodboard__caption-title">Folio / Keys / Access — editorial warmth</p>
+                        <p class="moodboard__caption-body">Dark backgrounds with warm copper and cream type. Physical objects (fruit, compass) ground the digital interface in tactile reality. This board set the tone for OULM's colour palette: bronze on dark, serif kickers, and a passport-like access metaphor.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="moodboard__item">
+                    <img class="moodboard__img" src="assets/moodboard/ref-ymca-neon-login.png" alt="YMCA mobile app concept with neon-yellow access panel and community tagline" loading="lazy">
+                    <figcaption class="moodboard__caption">
+                        <p class="moodboard__caption-title">YMCA neon — energy + access panel</p>
+                        <p class="moodboard__caption-body">A high-contrast exploration: neon yellow over soft off-white, with a full-bleed login card. We pulled the "community first, credentials second" sequencing from this direction — the access panel sits below the value proposition, not above it.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="moodboard__item">
+                    <img class="moodboard__img" src="assets/moodboard/ref-ymca-portals.png" alt="Five YMCA portal and login screen explorations ranging from gradient backgrounds to minimal form layouts" loading="lazy">
+                    <figcaption class="moodboard__caption">
+                        <p class="moodboard__caption-title">YMCA portal audit — five login patterns</p>
+                        <p class="moodboard__caption-body">Benchmarking existing and reimagined YMCA access screens. The rightmost card (minimal, mono-spaced, red accent) informed our decision to use JetBrains Mono for system labels and a simple code-handshake over complex form flows.</p>
+                    </figcaption>
+                </figure>
             </div>
         </section>
 
-        <section class="lane">
-            <div class="arrow">Homebase -> Events -> Event detail -> RSVP -> Onboarding</div>
-            <div class="lane__cards">
-                <article class="frame"><strong>Homebase hero</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Events list</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Event detail</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Soft RSVP</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Matchmaking picks</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+        <!-- ═══ 03 DESIGN PRINCIPLES ═══ -->
+        <section class="design-section" aria-labelledby="s-principles">
+            <p class="design-section__label">03 — Design principles</p>
+            <h2 class="design-section__heading" id="s-principles">Four rules that shaped every screen</h2>
+
+            <div class="principles">
+                <article class="principle">
+                    <span class="principle__number">01</span>
+                    <h3 class="principle__title">Place before profile</h3>
+                    <p class="principle__body">The Woodland Cafe and Leavesden anchor every flow. Users see the physical space first — who is there, what is happening — before being asked to identify themselves.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle__number">02</span>
+                    <h3 class="principle__title">Friction as care</h3>
+                    <p class="principle__body">Booking, hosting, and access all use intentional friction: draft states, mentor review, handshake verification. Every gate exists to protect the room, not punish the user.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle__number">03</span>
+                    <h3 class="principle__title">Offline-first trust</h3>
+                    <p class="principle__body">The app is a key, not a door. Save intent on your device; bring it to the Cafe when ready. Service Worker + IndexedDB ensure nothing is lost between visits.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle__number">04</span>
+                    <h3 class="principle__title">Warmth over polish</h3>
+                    <p class="principle__body">Serif headlines, bronze tones, surface noise, and ambient motion create warmth. The aesthetic says "lived in" rather than "startup launch page."</p>
+                </article>
             </div>
         </section>
 
-        <section class="lane">
-            <div class="arrow">Homebase -> Map -> Venue modal -> Event link</div>
-            <div class="lane__cards">
-                <article class="frame"><strong>County map</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
-                <article class="frame"><strong>Venue list</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
-                <article class="frame"><strong>Venue modal</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+        <!-- ═══ 04 DESIGN TOKENS ═══ -->
+        <section class="design-section" aria-labelledby="s-tokens">
+            <p class="design-section__label">04 — Visual language</p>
+            <h2 class="design-section__heading" id="s-tokens">Tokens and type</h2>
+            <p class="design-section__body">Every colour, radius, shadow, and spacing value is driven by CSS custom properties defined in <code style="font-family:var(--font-mono);font-size:0.85em">tokens.css</code>. The palette is deliberately warm — parchment papers, bronze accents, sage greens, and a deep espresso dark mode.</p>
+
+            <div class="token-board">
+                <div class="token-swatch token-swatch--paper"><span class="token-swatch__name">Paper</span><span class="token-swatch__value">#faf5ee</span></div>
+                <div class="token-swatch token-swatch--dark"><span class="token-swatch__name">Dark</span><span class="token-swatch__value">#1a1210</span></div>
+                <div class="token-swatch token-swatch--ink"><span class="token-swatch__name">Ink</span><span class="token-swatch__value">#2e2420</span></div>
+                <div class="token-swatch token-swatch--bronze"><span class="token-swatch__name">Bronze</span><span class="token-swatch__value">#c2753a</span></div>
+                <div class="token-swatch token-swatch--gold"><span class="token-swatch__name">Gold</span><span class="token-swatch__value">#daa840</span></div>
+                <div class="token-swatch token-swatch--sage"><span class="token-swatch__name">Sage</span><span class="token-swatch__value">#7e9476</span></div>
+                <div class="token-swatch token-swatch--coral"><span class="token-swatch__name">Coral</span><span class="token-swatch__value">#e08a6a</span></div>
+                <div class="token-swatch token-swatch--blue"><span class="token-swatch__name">Blue</span><span class="token-swatch__value">#7892b0</span></div>
+            </div>
+
+            <div class="type-samples">
+                <div>
+                    <p class="type-sample__label">Heading — Bebas Neue</p>
+                    <p class="type-sample--heading">A softer way to show up.</p>
+                </div>
+                <div>
+                    <p class="type-sample__label">Display — Plus Jakarta Sans</p>
+                    <p class="type-sample--display">Place before profile, friction as care.</p>
+                </div>
+                <div>
+                    <p class="type-sample__label">Body — Inter</p>
+                    <p class="type-sample--body">The primary barrier is not technical friction. It is the psychological anxiety of showing up for the first time, not knowing who will be there, and wondering whether you belong.</p>
+                </div>
+                <div>
+                    <p class="type-sample__label">Mono — JetBrains Mono</p>
+                    <p class="type-sample--mono">HANDSHAKE CODE · OULM-WOODLAND · REGISTRY SEQUENCE 88-B.49</p>
+                </div>
             </div>
         </section>
 
-        <section class="lane">
-            <div class="arrow">Homebase -> Host -> Booking wizard -> Pending review</div>
-            <div class="lane__cards">
-                <article class="frame"><strong>Host overview</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
-                <article class="frame"><strong>Wizard step 1</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Wizard step 2-4</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
-                <article class="frame"><strong>Review state</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+        <!-- ═══ 05 KEY DECISIONS ═══ -->
+        <section class="design-section" aria-labelledby="s-decisions">
+            <p class="design-section__label">05 — Key decisions</p>
+            <h2 class="design-section__heading" id="s-decisions">Why this, not that</h2>
+
+            <div class="decisions">
+                <article class="decision">
+                    <p class="decision__q">Why a sub-brand instead of reskinning YMCA?</p>
+                    <p class="decision__a">YMCA's brand recognition is high, but the tone feels institutional to 14-25s. OULM operates as a warm front-door that still resolves to YMCA infrastructure underneath. The lockup is always visible.</p>
+                </article>
+                <article class="decision">
+                    <p class="decision__q">Why handshake codes instead of OAuth?</p>
+                    <p class="decision__a">A mentor typing a code in the room is a social contract. OAuth solves identity; it does not solve belonging. The handshake forces a real conversation before digital access escalates.</p>
+                </article>
+                <article class="decision">
+                    <p class="decision__q">Why offline-first for a community app?</p>
+                    <p class="decision__a">Rural Hertfordshire and parts of Bedfordshire have patchy signal. An offline-first PWA with IndexedDB sync means an RSVP saved on the bus still arrives at the Cafe.</p>
+                </article>
+                <article class="decision">
+                    <p class="decision__q">Why intentional friction in booking?</p>
+                    <p class="decision__a">Instant-publish events create ghost listings. Draft → Pending → Approved ensures the host has thought about space, safety, access, and what they are asking people to show up for.</p>
+                </article>
+                <article class="decision">
+                    <p class="decision__q">Why Bebas Neue for headlines?</p>
+                    <p class="decision__a">Bebas is bold enough to hold attention inside a phone-sized viewport, but its all-caps softness avoids the aggression of geometric sans. It reads as "poster on a cafe wall," not "corporate rebrand."</p>
+                </article>
+                <article class="decision">
+                    <p class="decision__q">Why no dark mode toggle?</p>
+                    <p class="decision__a">The Calibrator / index page is already dark, and the device-frame preview sits on a dark stage. Adding a full dark toggle would double the token surface for a prototype that needs to demonstrate tone, not themeing flexibility.</p>
+                </article>
             </div>
         </section>
 
-        <section class="lane">
-            <div class="arrow">Attendance -> Host points -> Verified hours -> External proof</div>
-            <div class="lane__cards">
-                <article class="frame"><strong>Progress dashboard</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line"></div></article>
-                <article class="frame"><strong>Signals</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
-                <article class="frame"><strong>Partner pathways</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div></article>
+        <!-- ═══ 06 SITEMAP / WIREFRAMES ═══ -->
+        <section class="design-section" aria-labelledby="s-sitemap">
+            <p class="design-section__label">06 — Sitemap &amp; wireframes</p>
+            <h2 class="design-section__heading" id="s-sitemap">Low-fidelity flow map</h2>
+            <p class="design-section__body">Each lane traces a primary user journey. Frames show structural intent — layout primitives and content hierarchy — before visual design. Annotations mark where gating, friction, and offline storage intersect the flow.</p>
+
+            <div class="lane">
+                <div>
+                    <span class="eyebrow">Core shell</span>
+                    <p class="lane__title"><span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span> five-tab architecture</p>
+                </div>
+                <div class="lane__cards">
+                    <article class="frame"><strong>Homebase</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Hero + HQ module + pillar nav + featured carousel</p></article>
+                    <article class="frame"><strong>Events</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Filter bar + card list, county/vibe facets</p></article>
+                    <article class="frame"><strong>Map</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Leaflet + venue sheet + filter pills</p></article>
+                    <article class="frame"><strong>Host</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Gated: handshake required. Friction principles + approval flow</p></article>
+                    <article class="frame"><strong>Progress</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Radials + signals + handshake form + PWA bridge</p></article>
+                </div>
+            </div>
+
+            <div class="lane">
+                <div class="arrow">Discovery → Soft RSVP → Onboarding → Matchmaking</div>
+                <div class="lane__cards">
+                    <article class="frame"><strong>Events list</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Cover hue, vibe tag, attendance bar</p></article>
+                    <article class="frame"><strong>Event detail</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Hero card + expandable panels: host / schedule / venue / format</p></article>
+                    <article class="frame"><strong>Soft RSVP</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Intent toggle, guest count, arrival note. Stored in localStorage</p></article>
+                    <article class="frame"><strong>Onboarding</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Name + age band + interest picks → suggestion engine</p></article>
+                    <article class="frame"><strong>Matchmaking</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Post-RSVP: "users like you also joined" simulated recs</p></article>
+                </div>
+            </div>
+
+            <div class="lane">
+                <div class="arrow">Homebase → Map → Venue sheet → Linked event</div>
+                <div class="lane__cards">
+                    <article class="frame"><strong>County map</strong><div class="frame__bar"></div><div class="frame__line"></div><p class="frame__annotation">Circle markers by venue kind. Fallback list if Leaflet unavailable</p></article>
+                    <article class="frame"><strong>Venue sheet</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Spring-animated bottom sheet: story, amenities, linked event</p></article>
+                    <article class="frame"><strong>Venue detail</strong><div class="frame__bar"></div><div class="frame__line"></div><p class="frame__annotation">Follow to linked event CTA → event-detail.html</p></article>
+                </div>
+            </div>
+
+            <div class="lane">
+                <div class="arrow">Host → Booking wizard (4-step stepper) → Pending review</div>
+                <div class="lane__cards">
+                    <article class="frame"><strong>Host gate</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Sleeping card state if unverified. Redirects to handshake</p></article>
+                    <article class="frame"><strong>Steps 1-3</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Venue, format, capacity, access, safety, resourcing fields</p></article>
+                    <article class="frame"><strong>Step 4: Review</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">Under-16 mentor notice if age band = 14-17</p></article>
+                    <article class="frame"><strong>Draft saved</strong><div class="frame__bar"></div><div class="frame__line short"></div><p class="frame__annotation">localStorage → Pending review confirmation</p></article>
+                </div>
+            </div>
+
+            <div class="lane">
+                <div class="arrow">Attendance → Host points → Verified hours → External proof → Partner pathways</div>
+                <div class="lane__cards">
+                    <article class="frame"><strong>Progress dash</strong><div class="frame__bar"></div><div class="frame__line"></div><p class="frame__annotation">Radial SVGs: presence / host / verified hours</p></article>
+                    <article class="frame"><strong>Signals</strong><div class="frame__bar"></div><div class="frame__line"></div><div class="frame__line short"></div><p class="frame__annotation">4 signal cards — gated state dots + activation thresholds</p></article>
+                    <article class="frame"><strong>Partner pathways</strong><div class="frame__bar"></div><div class="frame__line"></div><p class="frame__annotation">Career / education links. Gated behind verification</p></article>
+                </div>
             </div>
         </section>
+
+        <!-- ═══ 07 TECHNICAL ARC ═══ -->
+        <section class="design-section" aria-labelledby="s-tech">
+            <p class="design-section__label">07 — Technical architecture</p>
+            <h2 class="design-section__heading" id="s-tech">From wire to pixel</h2>
+            <p class="design-section__body">The prototype is a static-file PWA: vanilla HTML, CSS custom properties, and ES modules — no build step, no framework. A SwiftUI wrapper loads the same bundle via WKWebView for iOS distribution. Service Worker handles offline caching, Background Sync queues exports, and Web Push provides notification scaffolding.</p>
+
+            <div class="principles" style="margin-top:1.5rem">
+                <article class="principle">
+                    <span class="principle__number" style="color:var(--color-sage)">PWA</span>
+                    <h3 class="principle__title">Service Worker + manifest</h3>
+                    <p class="principle__body">Stale-while-revalidate for assets, network-first for navigation. Kiosk page and all HTML precached for offline use.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle__number" style="color:var(--color-blue)">Storage</span>
+                    <h3 class="principle__title">localStorage + IndexedDB</h3>
+                    <p class="principle__body">All user state (RSVPs, bookings, progress, profile) lives on-device. No server, no auth. The mentor handshake is the only escalation.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle__number" style="color:var(--color-coral)">Swift</span>
+                    <h3 class="principle__title">WKWebView shell</h3>
+                    <p class="principle__body">ContentView splash → WebAppView loads index.html from the bundled /web directory. Same codebase, native wrapper.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle__number" style="color:var(--color-gold)">A11y</span>
+                    <h3 class="principle__title">Accessible by default</h3>
+                    <p class="principle__body">Skip links, ARIA labels, focus-visible outlines, prefers-reduced-motion, WCAG AA contrast on all text/background pairs.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══ FOOTER ═══ -->
+        <footer class="design-footer">
+            <p>OULM by One YMCA · Capstone prototype · <a href="homebase.html">Enter prototype</a></p>
+        </footer>
+
     </main>
     <script src="register-sw.js" defer></script>
 </body>
