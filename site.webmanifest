@@ -1,0 +1,59 @@
+{
+  "id": "./",
+  "name": "OULM by One YMCA",
+  "short_name": "OULM",
+  "description": "OULM — Woodland Café, Leavesden, and digital connective tissue for youth community across Hertfordshire, Bedfordshire, and Buckinghamshire.",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "browser"],
+  "orientation": "any",
+  "background_color": "#1a1210",
+  "theme_color": "#1a1210",
+  "categories": ["lifestyle", "social"],
+  "shortcuts": [
+    {
+      "name": "Events",
+      "short_name": "Events",
+      "description": "Browse community events",
+      "url": "./events.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Map",
+      "short_name": "Map",
+      "description": "County venues map",
+      "url": "./map.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Host",
+      "short_name": "Host",
+      "description": "Host and book spaces",
+      "url": "./host.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

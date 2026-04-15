@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Oulm — RSVP</title>
+    <meta name="description" content="OULM by One YMCA — Woodland Café, Leavesden, youth community across Hertfordshire, Bedfordshire, and Buckinghamshire.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — Soft RSVP</title>
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
@@ -12,12 +22,17 @@
 </head>
 <body data-page="rsvp">
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="app-stage">
+<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
 <div class="app">
-    <header class="app-bar app-bar--sub">
+    <header class="app-bar app-bar--sub app-bar--with-back">
         <a href="events.html" class="app-bar__back" aria-label="Back">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </a>
-        <h1 class="app-bar__title">RSVP</h1>
+        <a href="homebase.html" class="app-bar__logo-link app-bar__logo-link--sm" aria-label="OULM Homebase">
+            <img src="assets/OULM.svg" alt="" width="88" height="24" decoding="async">
+        </a>
+        <h1 class="app-bar__title">Soft RSVP</h1>
     </header>
 
     <main class="screen" id="main">
@@ -25,9 +40,10 @@
 
         <section class="screen__section">
             <div class="stack">
-                <span class="eyebrow">Attendance intent</span>
+                <span class="eyebrow">Soft RSVP intent</span>
+                <p style="color:var(--color-ink-muted);font-size:var(--step--1)">A low-stakes digital signal — not a locked-in calendar hold.</p>
                 <div class="selection-grid">
-                    <button class="choice-chip" type="button" data-intent="rsvp">RSVP now</button>
+                    <button class="choice-chip" type="button" data-intent="rsvp">I&apos;m leaning in</button>
                     <button class="choice-chip" type="button" data-intent="show-up">Likely show up</button>
                     <button class="choice-chip" type="button" data-intent="maybe">Still deciding</button>
                 </div>
@@ -68,10 +84,11 @@
         </section>
 
         <div id="rsvp-feedback" class="screen__pad empty-state">Nothing saved yet.</div>
+        <div id="rsvp-matchmaking" class="matchmaking-panel" hidden></div>
     </main>
 
     <div class="action-bar">
-        <button class="button--bronze button button--lg" type="button" data-rsvp-submit>Save RSVP</button>
+        <button class="button--bronze button button--lg" type="button" data-rsvp-submit>Send soft RSVP</button>
         <a class="button--ghost" href="onboarding.html">Onboarding</a>
     </div>
 
@@ -98,6 +115,8 @@
         </a>
     </nav>
 </div>
+</div>
+<script src="register-sw.js" defer></script>
 <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>

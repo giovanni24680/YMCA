@@ -67,6 +67,6 @@ export const onboardingClusters = [
     },
     {
         label: "Energy",
-        options: ["Low pressure", "Try something new", "Want a small group", "Need a reason to show up", "Ready to host"]
+        options: ["Low pressure", "Try something new", "Want a small group", "Need a reason to show up", "Ready to host", "Leadership pathway"]
     }
 ];

@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Oulm — Booking</title>
+    <meta name="description" content="OULM by One YMCA — Woodland Café, Leavesden, youth community across Hertfordshire, Bedfordshire, and Buckinghamshire.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — Booking</title>
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
@@ -12,20 +22,26 @@
 </head>
 <body data-page="booking">
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="app-stage">
+<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
 <div class="app">
-    <header class="app-bar app-bar--sub">
+    <header class="app-bar app-bar--sub app-bar--with-back">
         <a href="host.html" class="app-bar__back" aria-label="Back to host">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </a>
+        <a href="homebase.html" class="app-bar__logo-link app-bar__logo-link--sm" aria-label="OULM Homebase">
+            <img src="assets/OULM.svg" alt="" width="88" height="24" decoding="async">
         </a>
         <h1 class="app-bar__title">Booking Wizard</h1>
     </header>
 
     <main class="screen" id="main">
-        <section class="screen__pad">
-            <div class="stepper__progress"><div class="stepper__progress-fill" data-stepper-progress-fill style="width:20%"></div></div>
-        </section>
-
         <form class="stepper screen__pad" id="booking-form" data-stepper>
+            <div class="river-progress" aria-hidden="true">
+                <div class="river-progress__bed"></div>
+                <div class="river-progress__flow" data-stepper-progress-fill style="width:20%"></div>
+            </div>
+            <p class="river-progress__label"><span class="eyebrow">River flow</span> Steps fill like the Ouse moving downstream.</p>
             <div class="stepper__rail">
                 <button class="stepper__badge" type="button" data-step-badge>Intent</button>
                 <button class="stepper__badge" type="button" data-step-badge>Venue</button>
@@ -62,7 +78,7 @@
                     <div class="field">
                         <label for="venue-preference">Venue</label>
                         <select id="venue-preference" name="venuePreference">
-                            <option value="Oulm Homebase">Oulm Homebase</option>
+                            <option value="Woodland Café (OULM HQ)">Woodland Café (OULM HQ)</option>
                             <option value="Bedford Makers Room">Bedford Makers Room</option>
                             <option value="High Wycombe Forum">High Wycombe Forum</option>
                             <option value="Request new venue">Request new venue</option>
@@ -166,6 +182,8 @@
         </a>
     </nav>
 </div>
+</div>
+<script src="register-sw.js" defer></script>
 <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>

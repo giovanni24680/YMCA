@@ -4,7 +4,7 @@
     border: 1px solid var(--color-line);
     border-radius: var(--radius-lg);
     background: var(--color-paper-elevated);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     display: grid;
     gap: var(--space-sm);
     transition:
@@ -19,17 +19,21 @@ a.card { text-decoration: none; }
     a.card:hover,
     .card--interactive:hover {
         border-color: var(--color-line-strong);
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
     }
 
     .card--dark:hover {
         border-color: rgba(255, 248, 238, 0.14);
         box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
     }
 }
 
 .card--interactive:active {
-    transform: scale(0.98);
+    transform: scale(0.97) translateY(0);
+    transition-duration: var(--dur-fast);
+    box-shadow: var(--shadow-sm);
 }
 
 .card--dark {
@@ -69,6 +73,7 @@ a.card { text-decoration: none; }
     background: radial-gradient(circle at 30% 60%, var(--color-gold-muted), transparent 50%);
 }
 
+
 .button {
     display: inline-flex;
     align-items: center;
@@ -93,12 +98,16 @@ a.card { text-decoration: none; }
 
 @media (hover: hover) and (pointer: fine) {
     .button:hover:not(:disabled):not([aria-disabled="true"]) {
-        filter: brightness(1.05);
+        filter: brightness(1.08);
         box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
     }
 }
 
-.button:active:not(:disabled):not([aria-disabled="true"]) { transform: scale(0.97); }
+.button:active:not(:disabled):not([aria-disabled="true"]) {
+    transform: scale(0.97) translateY(0);
+    transition-duration: var(--dur-fast);
+}
 
 .button:disabled,
 .button[aria-disabled="true"] {
@@ -177,7 +186,13 @@ a.card { text-decoration: none; }
 
 .button-link::after {
     content: "\2192";
-    transition: transform var(--dur-fast) var(--ease-out);
+    transition: transform var(--dur-base) var(--ease-spring);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .button-link:hover::after {
+        transform: translateX(0.25rem);
+    }
 }
 
 .tag {
@@ -244,6 +259,14 @@ a.card { text-decoration: none; }
     background: var(--color-ink-strong);
     color: var(--color-paper);
     border-color: transparent;
+    box-shadow: var(--shadow-sm);
+    transform: scale(1);
+}
+
+.filter-pill:active,
+.choice-chip:active {
+    transform: scale(0.94);
+    transition-duration: var(--dur-fast);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -272,7 +295,7 @@ a.card { text-decoration: none; }
 }
 
 .carousel--cards > * {
-    width: 16rem;
+    width: 14rem;
 }
 
 .section-label {
@@ -420,7 +443,7 @@ a.card { text-decoration: none; }
     background: var(--color-paper-elevated);
     box-shadow: 0 -8px 40px var(--color-shadow-heavy);
     transform: translateY(100%);
-    transition: transform var(--dur-slow) var(--ease-out);
+    transition: transform 0.48s var(--ease-spring);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -491,7 +514,7 @@ a.card { text-decoration: none; }
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     background: var(--color-paper-elevated);
     box-shadow: var(--shadow-xl);
-    animation: slideUp var(--dur-base) var(--ease-out) both;
+    animation: slideUp 0.4s var(--ease-spring) both;
 }
 
 .modal-close {
@@ -713,6 +736,125 @@ a.card { text-decoration: none; }
     box-shadow: none;
     border-top: 2px solid var(--color-line);
     border-radius: 0;
+}
+
+.tab-bar__item[data-gate-locked="true"] {
+    opacity: 0.72;
+}
+
+.tab-bar__item[data-gate-locked="true"] .tab-bar__label::after {
+    content: "";
+    display: inline-block;
+    width: 0.28rem;
+    height: 0.28rem;
+    margin-left: 0.15rem;
+    border-radius: 50%;
+    background: var(--color-bronze);
+    vertical-align: 0.15em;
+}
+
+.button--disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.gate-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-lg);
+    border: 1px solid var(--color-line);
+    background: var(--color-paper-elevated);
+}
+
+.gate-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--step-3);
+    letter-spacing: 0.03em;
+    margin-top: var(--space-xs);
+}
+
+.gate-card__body {
+    margin-top: var(--space-sm);
+    font-size: var(--step-0);
+    color: var(--color-ink-muted);
+    line-height: 1.55;
+}
+
+.gate-card--meet {
+    margin-top: var(--space-md);
+    border-color: rgba(194, 117, 58, 0.25);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.gate-card--inline {
+    text-align: left;
+    max-width: 28rem;
+    margin-inline: auto;
+}
+
+.matchmaking-panel {
+    padding-bottom: var(--space-2xl);
+}
+
+.matchmaking-panel__inner {
+    max-width: 40rem;
+    margin-inline: auto;
+    padding: 0 var(--space-md);
+}
+
+.matchmaking-panel__title {
+    margin-top: var(--space-xs);
+}
+
+.matchmaking-panel__lede {
+    margin-top: var(--space-sm);
+    font-size: var(--step--1);
+    color: var(--color-ink-muted);
+    line-height: 1.55;
+}
+
+.matchmaking-grid {
+    display: grid;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.matchmaking-card h4 {
+    margin-top: var(--space-2xs);
+}
+
+.river-progress {
+    position: relative;
+    height: 0.45rem;
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    background: transparent;
+}
+
+.river-progress__bed {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--color-paper-inset), rgba(126, 148, 118, 0.15));
+    border-radius: var(--radius-pill);
+}
+
+.river-progress__flow {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(90deg, var(--color-sage), var(--color-bronze) 55%, var(--color-gold));
+    transform-origin: left center;
+    transition:
+        width 0.72s var(--ease-spring),
+        filter var(--dur-slow) var(--ease-out);
+    box-shadow: 0 0 12px rgba(194, 117, 58, 0.35);
+}
+
+.river-progress__label {
+    margin-top: var(--space-sm);
+    font-size: var(--step--1);
+    color: var(--color-ink-muted);
 }
 
 @media (max-width: 768px) {

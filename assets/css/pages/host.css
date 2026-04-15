@@ -33,3 +33,11 @@
 .status-board article:nth-child(1) { border-color: var(--color-sage); }
 .status-board article:nth-child(2) { border-color: var(--color-bronze); }
 .status-board article:nth-child(3) { border-color: var(--color-blue); }
+
+.host-access-banner {
+    padding: var(--space-sm) var(--space-md) 0;
+}
+
+.host-access-banner:not([hidden]) + .screen__section {
+    padding-top: var(--space-sm);
+}

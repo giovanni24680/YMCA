@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Oulm — Homebase</title>
+    <meta name="description" content="OULM by One YMCA — Woodland Café, Leavesden, and community Homebase across Herts, Beds, and Bucks.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — Homebase</title>
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
@@ -12,9 +22,13 @@
 </head>
 <body data-page="homebase">
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="app-stage">
+<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
 <div class="app">
     <header class="app-bar">
-        <h1 class="app-bar__title">Oulm</h1>
+        <a href="homebase.html" class="app-bar__logo-link" aria-label="OULM Homebase">
+            <img src="assets/OULM.svg" alt="" width="120" height="32" decoding="async">
+        </a>
     </header>
 
     <main class="screen" id="main">
@@ -24,12 +38,18 @@
             <div class="homebase-hero__scene"></div>
             <div class="homebase-hero__gradient"></div>
             <div class="homebase-hero__content">
-                <span class="eyebrow homebase-hero__kicker">Herts / Beds / Bucks</span>
+                <img src="assets/OULM.svg" alt="OULM" class="homebase-hero__wordmark" width="120" height="32" decoding="async">
+                <span class="eyebrow homebase-hero__kicker">Herts / Beds / Bucks · Living HQ</span>
                 <h1>A softer way<br>to show up.</h1>
             </div>
         </section>
 
+        <div id="homebase-path-slot"></div>
+        <div id="homebase-hq-slot"></div>
+
         <div class="community-pulse" id="community-pulse"></div>
+
+        <nav class="pillar-nav" id="homebase-pillars" aria-label="Main pillars"></nav>
 
         <div class="section-label">
             <h3>Featured</h3>
@@ -108,6 +128,8 @@
         </a>
     </nav>
 </div>
+</div>
+<script src="register-sw.js" defer></script>
 <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>

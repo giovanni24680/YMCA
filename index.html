@@ -3,40 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Oulm — A softer way to show up</title>
+    <meta name="description" content="OULM by One YMCA — digital connective tissue for the Woodland Café, Leavesden, and youth community across Herts, Beds, and Bucks.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — The Calibrator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="index">
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="surface-noise"></div>
-    <main class="index-gate" id="main">
-        <section class="index-gate__card" aria-labelledby="index-gate-title">
-            <div class="index-gate__brand">
-                <span class="index-gate__brand-name">Oulm</span>
-                <span class="eyebrow">by One YMCA</span>
+    <div class="surface-noise" aria-hidden="true"></div>
+    <main class="calibrator" id="main" aria-labelledby="calibrator-title">
+        <header class="calibrator__header">
+            <div class="calibrator__brand-row">
+                <img src="assets/OULM.svg" alt="OULM" class="calibrator__wordmark" width="140" height="40" decoding="async">
+                <span class="calibrator__parent-mark" aria-hidden="true">
+                    <img src="assets/YMCA.svg" alt="" width="48" height="48" decoding="async">
+                </span>
             </div>
-            <h1 id="index-gate-title">Opening the<br>community Homebase.</h1>
-            <p class="lede">Touch-first static MVP for mobile, tablet, desktop, and kiosk.</p>
-            <div class="index-gate__actions">
-                <a class="button" href="homebase.html">Enter Homebase</a>
-                <a class="button--ghost" href="events.html">Events</a>
-            </div>
-            <div class="index-gate__status" aria-live="polite">
-                <span class="eyebrow" data-index-status>Preparing Homebase...</span>
-            </div>
-            <div
-                class="index-gate__meter"
-                role="progressbar"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="0"
-                aria-label="Loading Homebase"
-            >
-                <span data-index-meter></span>
-            </div>
-            <p class="index-gate__hint">Herts / Beds / Bucks</p>
-        </section>
+            <p id="calibrator-title" class="calibrator__title">The Calibrator</p>
+            <p class="calibrator__subtitle">A vibe-check and a contract before you touch a booking button.</p>
+        </header>
+
+        <div class="calibrator__viewport">
+            <div class="calibrator__river" aria-hidden="true"></div>
+            <div class="calibrator__slides" data-calibrator-track></div>
+        </div>
+
+        <p class="calibrator__progress-label" data-calibrator-slide-label></p>
+
+        <div class="calibrator__dots" data-calibrator-dots role="tablist" aria-label="Calibrator slides"></div>
+
+        <div class="calibrator__controls">
+            <button type="button" class="button--ghost calibrator__btn" data-calibrator-prev>Back</button>
+            <button type="button" class="button calibrator__btn" data-calibrator-next>Next</button>
+            <button type="button" class="button calibrator__btn calibrator__btn--enter" data-calibrator-enter hidden>Enter the OULM flow</button>
+        </div>
+
+        <footer class="brand-lockup-footer calibrator__footer">
+            <a href="guide.html" class="button-link calibrator__guide-link">How OULM works (pre-gate)</a>
+            <img src="assets/OULM%20Lockup.svg" alt="OULM by One YMCA lockup" class="calibrator__lockup" decoding="async">
+        </footer>
     </main>
-    <script type="module" src="main.js"></script>
+    <script src="register-sw.js" defer></script>
+    <script type="module" src="assets/js/index-entry.js"></script>
 </body>
 </html>

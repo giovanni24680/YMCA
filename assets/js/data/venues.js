@@ -1,15 +1,28 @@
 export const venues = [
     {
         id: "homebase-st-albans",
-        name: "Oulm Homebase",
+        name: "Woodland Café (OULM HQ)",
         county: "Hertfordshire",
         town: "St Albans",
         kind: "hq",
         lat: 51.7528,
         lng: -0.3394,
-        address: "Civic quarter, St Albans",
-        amenities: ["Cafe lounge", "After-school tables", "Quiet booth", "Open mic corner"],
-        story: "The third-place anchor for Oulm. A warm cafe-first space where showing up feels less formal than arriving at an office.",
+        address: "Woodland Café quarter, St Albans",
+        amenities: ["Third-space tables", "Mentor desk", "Quiet booth", "Handshake corner"],
+        story: "The Woodland Café is not wallpaper — it is the physical firmware where digital curiosity becomes a face, a name, and a mentor who remembers you.",
+        nextEventSlug: "show-up-supper-club"
+    },
+    {
+        id: "leavesden-country-park",
+        name: "Leavesden Country Park",
+        county: "Hertfordshire",
+        town: "Leavesden",
+        kind: "hq",
+        lat: 51.692,
+        lng: -0.418,
+        address: "Country park gateway, Leavesden",
+        amenities: ["Outdoor circles", "Walking loops", "Field-day clearings"],
+        story: "Open-air HQ for the OULM current: lungs, light, and low-stakes proximity before anyone asks you to host anything.",
         nextEventSlug: "show-up-supper-club"
     },
     {

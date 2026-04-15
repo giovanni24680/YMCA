@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Oulm — About</title>
+    <meta name="description" content="OULM by One YMCA — Woodland Café, Leavesden, youth community across Hertfordshire, Bedfordshire, and Buckinghamshire.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — About</title>
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
@@ -11,19 +21,24 @@
 </head>
 <body data-page="about">
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="app-stage">
+<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
 <div class="app">
-    <header class="app-bar app-bar--sub">
+    <header class="app-bar app-bar--sub app-bar--with-back">
         <a href="progress.html" class="app-bar__back" aria-label="Back">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </a>
-        <h1 class="app-bar__title">About Oulm</h1>
+        <a href="homebase.html" class="app-bar__logo-link app-bar__logo-link--sm" aria-label="OULM Homebase">
+            <img src="assets/OULM.svg" alt="" width="88" height="24" decoding="async">
+        </a>
+        <h1 class="app-bar__title">About OULM</h1>
     </header>
 
     <main class="screen" id="main">
         <section class="screen__section">
             <div class="stack">
                 <h2>A sub-brand to make community arrival feel closer, calmer, and more current.</h2>
-                <p class="lede">One YMCA carries strong recognition, but awareness does not convert into attendance. Oulm reframes the invitation through place, tone, and participation paths.</p>
+                <p class="lede">One YMCA carries strong recognition, but awareness does not convert into attendance. OULM reframes the invitation through place, tone, and participation paths — with the Woodland Café and Leavesden as physical firmware.</p>
             </div>
         </section>
 
@@ -37,7 +52,7 @@
                     <p style="color:var(--color-ink-muted);font-size:var(--step--1)">People struggle to picture themselves arriving and belonging.</p>
                 </article>
                 <article class="card">
-                    <span class="eyebrow">What Oulm changes</span>
+                    <span class="eyebrow">What OULM changes</span>
                     <h4>Place before profile.</h4>
                     <p style="color:var(--color-ink-muted);font-size:var(--step--1)">Homebase, venue stories, host credibility, and soft RSVP structure reduce the demand to commit socially before feeling safe.</p>
                 </article>
@@ -73,6 +88,8 @@
         </a>
     </nav>
 </div>
+</div>
+<script src="register-sw.js" defer></script>
 <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>

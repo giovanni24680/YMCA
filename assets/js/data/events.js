@@ -1,6 +1,7 @@
 export const events = [
     {
         slug: "show-up-supper-club",
+        coverHue: 28,
         title: "Show Up Supper Club",
         dateLabel: "Thu 18 Apr",
         timeLabel: "18:30 to 20:45",
@@ -30,6 +31,7 @@ export const events = [
     },
     {
         slug: "makers-late-lab",
+        coverHue: 155,
         title: "Makers Late Lab",
         dateLabel: "Sat 20 Apr",
         timeLabel: "17:00 to 20:00",
@@ -52,13 +54,14 @@ export const events = [
         ],
         faq: [
             { q: "Do I need to code?", a: "No. Design, making, storytelling, or simply learning are all welcome." },
-            { q: "Can I bring a project link?", a: "Yes, and it can later be logged to your Oulm progress record." },
+            { q: "Can I bring a project link?", a: "Yes, and it can later be logged to your OULM progress record." },
             { q: "Will there be mentors?", a: "There are community leads and partner volunteers, not formal lecturers." }
         ],
         socialProof: ["14 RSVPs", "4 repeat hosts", "Partner-backed venue"]
     },
     {
         slug: "community-cinema-club",
+        coverHue: 260,
         title: "Community Cinema Club",
         dateLabel: "Fri 26 Apr",
         timeLabel: "19:00 to 22:00",
@@ -88,6 +91,7 @@ export const events = [
     },
     {
         slug: "first-friday-food-run",
+        coverHue: 15,
         title: "First Friday Food Run",
         dateLabel: "Fri 03 May",
         timeLabel: "17:30 to 19:30",
@@ -117,6 +121,7 @@ export const events = [
     },
     {
         slug: "anime-after-hours",
+        coverHue: 330,
         title: "Anime After Hours",
         dateLabel: "Wed 08 May",
         timeLabel: "18:00 to 21:00",

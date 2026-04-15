@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,0..100,0..1&family=Newsreader:opsz,wght@6..72,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,0..100,0..1&family=Newsreader:opsz,wght@6..72,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 
 :root {
     color-scheme: light;
@@ -38,6 +38,7 @@
     --color-shadow-md: rgba(26, 18, 16, 0.07);
     --color-shadow-heavy: rgba(26, 18, 16, 0.14);
 
+    --font-heading: "Bebas Neue", "Impact", "Arial Narrow", sans-serif;
     --font-display: "Fraunces", Georgia, "Times New Roman", serif;
     --font-body: "Newsreader", Georgia, "Times New Roman", serif;
     --font-mono: "IBM Plex Mono", "Courier New", monospace;
@@ -90,6 +91,14 @@
 
     --site-max: 1120px;
     --site-wide: 1400px;
+    /* Desktop “phone preview” — wide viewports only (see layout.css) */
+    --device-frame-breakpoint: 880px;
+    --device-frame-max-w: 26.25rem;
+    --device-frame-radius: 2.25rem;
+    --device-stage-bg: #060504;
+    --device-chrome-bg: #ebe6df;
+    --device-chrome-dot: #ada298;
+
     --app-bar-h: 3rem;
     --tab-bar-h: 3.2rem;
     /* Minimum touch target (WCAG 2.5.5 / platform HIG) */

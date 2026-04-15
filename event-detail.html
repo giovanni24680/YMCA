@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Oulm — Event</title>
+    <meta name="description" content="OULM by One YMCA — Woodland Café, Leavesden, youth community across Hertfordshire, Bedfordshire, and Buckinghamshire.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — Event</title>
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
@@ -12,10 +22,15 @@
 </head>
 <body data-page="event-detail">
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="app-stage">
+<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
 <div class="app">
-    <header class="app-bar app-bar--sub">
+    <header class="app-bar app-bar--sub app-bar--with-back">
         <a href="events.html" class="app-bar__back" aria-label="Back to events">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </a>
+        <a href="homebase.html" class="app-bar__logo-link app-bar__logo-link--sm" aria-label="OULM Homebase">
+            <img src="assets/OULM.svg" alt="" width="88" height="24" decoding="async">
         </a>
         <h1 class="app-bar__title" id="app-bar-title">Event</h1>
     </header>
@@ -25,8 +40,8 @@
     </main>
 
     <div class="action-bar" id="event-action-bar" style="display:none">
-        <a class="button--bronze button button--lg" id="rsvp-cta" href="rsvp.html">RSVP</a>
-        <a class="button--ghost" id="show-up-cta" href="rsvp.html">Show up</a>
+        <a class="button--bronze button button--lg" id="rsvp-cta" href="rsvp.html">Soft RSVP</a>
+        <a class="button--ghost" id="show-up-cta" href="rsvp.html">Low-stakes signal</a>
     </div>
 
     <nav class="tab-bar" aria-label="Main">
@@ -52,6 +67,8 @@
         </a>
     </nav>
 </div>
+</div>
+<script src="register-sw.js" defer></script>
 <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>

@@ -5,8 +5,17 @@ export const storageKeys = {
     profileSeed: `${PREFIX}profile_seed`,
     bookingDraft: `${PREFIX}booking_draft`,
     progress: `${PREFIX}progress`,
-    externalSignals: `${PREFIX}external_signals`
+    externalSignals: `${PREFIX}external_signals`,
+    userProfile: `${PREFIX}user_profile`,
+    softRsvpLog: `${PREFIX}soft_rsvp_log`,
+    pushSubscription: `${PREFIX}push_subscription`,
+    calibratorComplete: `${PREFIX}calibrator_complete`
 };
+
+const defaultUserProfile = () => ({
+    isVerified: false,
+    leadershipPathway: false
+});
 
 export function readState(key, fallback) {
     try {
@@ -44,8 +53,8 @@ export function exportAllState() {
     const exportedAt = new Date().toISOString();
     const payload = {
         exportedAt,
-        app: "Oulm static MVP",
-        schemaVersion: 1,
+        app: "OULM static MVP",
+        schemaVersion: 2,
         data: Object.values(storageKeys).reduce((accumulator, key) => {
             accumulator[key] = readState(key, null);
             return accumulator;
@@ -83,4 +92,66 @@ export function ensureProgressSeed() {
 
     writeState(storageKeys.progress, seeded);
     return seeded;
+}
+
+/**
+ * Profile gate: `isVerified` is flipped by staff in production; here it stays in localStorage for simulation.
+ * `leadershipPathway` can be set from onboarding picks.
+ */
+export function ensureUserProfile() {
+    const profileSeed = readState(storageKeys.profileSeed, {});
+    const picks = Array.isArray(profileSeed.picks) ? profileSeed.picks : [];
+    const leadershipFromPicks = picks.includes("Leadership pathway");
+
+    const stored = readState(storageKeys.userProfile, null);
+    const prev = stored && typeof stored === "object" ? stored : {};
+
+    const merged = {
+        ...defaultUserProfile(),
+        ...prev,
+        isVerified: Boolean(prev.isVerified),
+        leadershipPathway: Boolean(prev.leadershipPathway) || leadershipFromPicks
+    };
+
+    const changed = !stored
+        || merged.isVerified !== Boolean(prev.isVerified)
+        || merged.leadershipPathway !== Boolean(prev.leadershipPathway);
+
+    if (changed) {
+        writeState(storageKeys.userProfile, merged);
+    }
+
+    return merged;
+}
+
+export function mergeUserProfile(partial) {
+    const profileSeed = readState(storageKeys.profileSeed, {});
+    const picks = Array.isArray(profileSeed.picks) ? profileSeed.picks : [];
+    const leadershipFromPicks = picks.includes("Leadership pathway");
+
+    const current = readState(storageKeys.userProfile, null);
+    const base = { ...defaultUserProfile(), ...(current && typeof current === "object" ? current : {}) };
+    const next = {
+        ...base,
+        ...partial,
+        leadershipPathway: Boolean(partial.leadershipPathway ?? base.leadershipPathway) || leadershipFromPicks
+    };
+    writeState(storageKeys.userProfile, next);
+    return next;
+}
+
+export function readSoftRsvpLog() {
+    return readState(storageKeys.softRsvpLog, []);
+}
+
+export function appendSoftRsvp(entry) {
+    return appendArrayState(storageKeys.softRsvpLog, entry);
+}
+
+export function isCalibratorComplete() {
+    return readState(storageKeys.calibratorComplete, false) === true;
+}
+
+export function setCalibratorComplete() {
+    writeState(storageKeys.calibratorComplete, true);
 }

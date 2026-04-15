@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="How OULM works — pre-gate transparency for Woodland Café, Leavesden, and digital-to-physical accountability.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <title>OULM — How it works</title>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages/guide.css">
+</head>
+<body data-page="guide">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app-stage">
+<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
+<div class="app">
+    <header class="app-bar app-bar--with-back">
+        <a href="index.html" class="app-bar__back" aria-label="Back to Calibrator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </a>
+        <a href="homebase.html" class="app-bar__logo-link app-bar__logo-link--sm" aria-label="OULM Homebase">
+            <img src="assets/OULM.svg" alt="" width="100" height="28" decoding="async">
+        </a>
+        <h1 class="app-bar__title">How OULM works</h1>
+    </header>
+
+    <main class="screen" id="main">
+        <section class="screen__pad guide-hero">
+            <div class="guide-hero__brand">
+                <img src="assets/OULM%20Lockup.svg" alt="OULM by One YMCA" class="guide-hero__lockup" decoding="async">
+            </div>
+            <p class="lede">Radical transparency before the gate — so no one feels alienated, whatever their age.</p>
+        </section>
+
+        <section class="screen__pad">
+            <h2 class="guide-table-title">The OULM answer</h2>
+            <div class="guide-table" role="region" aria-label="Who what where when how why">
+                <div class="guide-table__row"><span class="guide-table__q">Who?</span><span class="guide-table__a">You, your peers, and our verified YMCA mentors.</span></div>
+                <div class="guide-table__row"><span class="guide-table__q">What?</span><span class="guide-table__a">A system to book spaces, find mentors, and lead your own events.</span></div>
+                <div class="guide-table__row"><span class="guide-table__q">Where?</span><span class="guide-table__a">Digital on your phone; physical at the Woodland Café, Leavesden Country Park, and partner venues.</span></div>
+                <div class="guide-table__row"><span class="guide-table__q">When?</span><span class="guide-table__a">Browse 24/7. Unlock your full potential during Café hours with a handshake.</span></div>
+                <div class="guide-table__row"><span class="guide-table__q">How?</span><span class="guide-table__a">Start as a seeker with soft RSVPs. Visit us to become a host with social calibration, not ghosted forms.</span></div>
+                <div class="guide-table__row"><span class="guide-table__q">Why?</span><span class="guide-table__a">To turn digital noise into physical community impact — safety through connection, not paperwork.</span></div>
+            </div>
+        </section>
+
+        <section class="screen__pad" id="handshake">
+            <div class="card gate-card gate-card--handshake">
+                <span class="eyebrow">Youth cult handshake</span>
+                <h2>Level up in the room</h2>
+                <p style="font-size:var(--step--1);color:var(--color-ink-muted);line-height:1.55">Show this screen at the Woodland Café. After a short chat, your mentor enters a one-time handshake code on your device — instantly the member lane floods with colour.</p>
+                <form class="handshake-form" data-handshake-form>
+                    <div class="field">
+                        <label for="handshake-code-guide">Handshake code</label>
+                        <input id="handshake-code-guide" type="text" autocomplete="off" data-handshake-input placeholder="From your mentor">
+                    </div>
+                    <button class="button--bronze button" type="submit">Unlock member lane</button>
+                    <p class="handshake-form__feedback" data-handshake-feedback aria-live="polite"></p>
+                </form>
+                <p class="eyebrow" style="margin-top:var(--space-md)">Demo codes: OULM-WOODLAND · OULM-FLOW · WOODLAND-HANDSHAKE</p>
+            </div>
+        </section>
+
+        <section class="screen__pad guide-footer-cta">
+            <a class="button" href="homebase.html">Homebase</a>
+            <a class="button--ghost" href="events.html">Events</a>
+        </section>
+    </main>
+</div>
+</div>
+<script type="module">
+    import { initHandshakeForm } from "./assets/js/handshake-form.js";
+    initHandshakeForm();
+</script>
+</body>
+</html>

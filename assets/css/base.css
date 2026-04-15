@@ -53,7 +53,15 @@ a, button, input, select, textarea, summary, details {
         opacity var(--dur-base) var(--ease-out);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.02;
+    text-wrap: balance;
+}
+
+h4, h5, h6 {
     font-family: var(--font-display);
     font-optical-sizing: auto;
     font-weight: 700;
@@ -63,9 +71,9 @@ h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
 }
 
-h1 { font-size: var(--step-4); letter-spacing: -0.025em; }
-h2 { font-size: var(--step-3); line-height: 0.98; }
-h3 { font-size: var(--step-2); font-weight: 600; line-height: 1.08; }
+h1 { font-size: var(--step-4); letter-spacing: 0.04em; }
+h2 { font-size: var(--step-3); letter-spacing: 0.035em; }
+h3 { font-size: var(--step-2); letter-spacing: 0.03em; }
 h4 { font-size: var(--step-1); font-weight: 600; line-height: 1.15; }
 
 p, ul, ol, dl, blockquote { margin: 0; }
@@ -176,4 +184,24 @@ blockquote {
 @keyframes shimmer {
     from { background-position: -200% 0; }
     to { background-position: 200% 0; }
+}
+
+/* Page entrance slide-up */
+.screen {
+    animation: screenSlideUp var(--dur-slow) var(--ease-out) both;
+}
+
+@keyframes screenSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .screen { animation: none; }
 }
