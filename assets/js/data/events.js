@@ -54,7 +54,7 @@ export const events = [
         ],
         faq: [
             { q: "Do I need to code?", a: "No. Design, making, storytelling, or simply learning are all welcome." },
-            { q: "Can I bring a project link?", a: "Yes, and it can later be logged to your OULM progress record." },
+            { q: "Can I bring a project link?", a: 'Yes, and it can later be logged to your <span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span> progress record.' },
             { q: "Will there be mentors?", a: "There are community leads and partner volunteers, not formal lecturers." }
         ],
         socialProof: ["14 RSVPs", "4 repeat hosts", "Partner-backed venue"]

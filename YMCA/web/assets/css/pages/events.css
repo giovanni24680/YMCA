@@ -1,0 +1,274 @@
+/* ── 1:1 square cover (shared) ── */
+.card__cover,
+.event-card__cover {
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    background:
+        radial-gradient(ellipse 70% 60% at 30% 70%, hsla(var(--cover-hue, 28), 48%, 54%, 0.25), transparent 65%),
+        radial-gradient(ellipse 50% 50% at 75% 30%, hsla(calc(var(--cover-hue, 28) + 40), 36%, 72%, 0.18), transparent 55%),
+        linear-gradient(160deg, var(--color-paper-warm) 0%, var(--color-paper-inset) 100%);
+}
+
+.card__cover-vibe {
+    position: absolute;
+    bottom: var(--space-sm);
+    left: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: var(--step-3);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: rgba(26, 18, 16, 0.12);
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ── Premium card ── */
+.card--premium {
+    padding: 0;
+    gap: 0;
+    overflow: hidden;
+}
+
+.card--premium .card__cover {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card--premium .card__body-stack {
+    display: grid;
+    gap: var(--space-2xs);
+    padding: var(--space-md);
+}
+
+.card--premium .card__title {
+    font-size: var(--step-0);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* ── Event list card (row layout with square thumb) ── */
+.event-card {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    align-items: start;
+}
+
+.event-card__cover {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.event-card__cover .card__cover-vibe {
+    font-size: var(--step-1);
+    bottom: var(--space-2xs);
+    left: var(--space-2xs);
+}
+
+.event-card__body {
+    display: grid;
+    gap: var(--space-3xs);
+    min-width: 0;
+}
+
+.event-card__title {
+    font-size: var(--step-0);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.event-card__meta {
+    display: flex;
+    gap: var(--space-2xs);
+    flex-wrap: wrap;
+}
+
+.event-card__spots {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    letter-spacing: 0.06em;
+    color: var(--color-ink-faint);
+}
+
+.event-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+}
+
+.events-list {
+    display: grid;
+    gap: 0;
+}
+
+.events-list > .card {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    box-shadow: none;
+}
+
+/* ── RSVP status badge ── */
+.rsvp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    animation: fadeIn var(--dur-base) var(--ease-out) both;
+}
+
+.rsvp-badge::before {
+    content: "";
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+}
+
+.rsvp-badge--going {
+    background: rgba(126, 148, 118, 0.14);
+    color: var(--color-sage);
+    border: 1px solid rgba(126, 148, 118, 0.22);
+}
+.rsvp-badge--going::before { background: var(--color-sage); }
+
+.rsvp-badge--interested {
+    background: var(--color-gold-muted);
+    color: var(--color-gold);
+    border: 1px solid rgba(218, 168, 64, 0.22);
+}
+.rsvp-badge--interested::before { background: var(--color-gold); }
+
+.rsvp-badge--lg {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.6rem;
+}
+
+/* ── Event detail hero with cover ── */
+.event-hero-card {
+    padding: var(--space-xl) var(--space-md);
+    background: var(--color-dark);
+    color: var(--color-dark-text);
+}
+
+.event-hero-card--premium {
+    padding: 0;
+}
+
+.event-hero-cover {
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 80% 65% at 25% 75%, hsla(var(--cover-hue, 28), 50%, 48%, 0.35), transparent 65%),
+        radial-gradient(ellipse 55% 50% at 80% 25%, hsla(calc(var(--cover-hue, 28) + 45), 38%, 68%, 0.22), transparent 55%),
+        linear-gradient(175deg, var(--color-dark-surface) 0%, var(--color-dark) 100%);
+}
+
+.event-hero-cover__vibe {
+    position: absolute;
+    bottom: var(--space-md);
+    left: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: var(--step-5);
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    color: rgba(255, 248, 238, 0.06);
+    user-select: none;
+    pointer-events: none;
+}
+
+.event-hero-card__content {
+    padding: var(--space-lg) var(--space-md) var(--space-xl);
+}
+
+.event-hero-card h1 { color: var(--color-dark-text); }
+.event-hero-card .eyebrow { color: var(--color-dark-text-muted); }
+.event-hero-card .tag {
+    background: rgba(255, 250, 244, 0.08);
+    border-color: rgba(255, 250, 244, 0.12);
+    color: var(--color-dark-text-muted);
+}
+
+.event-hero-card .rsvp-badge--going {
+    background: rgba(126, 148, 118, 0.2);
+    border-color: rgba(126, 148, 118, 0.3);
+}
+
+.event-hero-card .rsvp-badge--interested {
+    background: rgba(218, 168, 64, 0.18);
+    border-color: rgba(218, 168, 64, 0.28);
+}
+
+/* ── Single-screen detail overlays ── */
+.detail-overlay-group {
+    display: grid;
+    gap: 0;
+    padding: 0 var(--space-md);
+}
+
+.detail-overlay-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    width: 100%;
+    padding: var(--space-md) 0;
+    border: 0;
+    border-bottom: 1px solid var(--color-line);
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.detail-overlay-trigger .eyebrow {
+    flex: 0 0 4.5rem;
+}
+
+.detail-overlay-trigger strong {
+    flex: 1;
+    min-width: 0;
+    font-size: var(--step--1);
+}
+
+.detail-overlay-chevron {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--color-ink-faint);
+    transition: transform var(--dur-base) var(--ease-out);
+}
+
+.detail-overlay-trigger[aria-expanded="true"] .detail-overlay-chevron {
+    transform: rotate(180deg);
+}
+
+.detail-overlay-panel {
+    overflow: hidden;
+    padding: 0 0 var(--space-md);
+    animation: overlaySlideIn var(--dur-base) var(--ease-out) both;
+}
+
+.detail-overlay-panel[hidden] { display: none; }
+
+@keyframes overlaySlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

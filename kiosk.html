@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Woodland Cafe check-in kiosk.">
+    <title>OULM Kiosk Check-In</title>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/branding.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100dvh;
+            display: grid;
+            place-items: center;
+            padding: clamp(1rem, 2.5vw, 2rem);
+            background:
+                radial-gradient(circle at top, rgba(194, 117, 58, 0.12), transparent 52%),
+                var(--color-dark);
+            color: var(--color-dark-text);
+        }
+
+        .kiosk-shell {
+            width: min(54rem, 100%);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 248, 238, 0.14);
+            background: color-mix(in srgb, var(--color-dark-elevated) 84%, black);
+            box-shadow: var(--shadow-xl);
+            padding: clamp(1.2rem, 2.5vw, 2.2rem);
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .kiosk-header {
+            display: grid;
+            justify-items: center;
+            gap: var(--space-sm);
+            text-align: center;
+        }
+
+        .kiosk-header .brand-mark {
+            width: clamp(10rem, 24vw, 14rem);
+            height: clamp(2.4rem, 5vw, 3.2rem);
+            color: var(--color-dark-text);
+        }
+
+        .kiosk-header h1 {
+            margin: 0;
+            color: var(--color-dark-text);
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            letter-spacing: 0.02em;
+        }
+
+        .kiosk-form {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--space-md);
+        }
+
+        .kiosk-form input {
+            min-height: 3.5rem;
+            font-size: clamp(1rem, 2vw, 1.35rem);
+            padding-inline: 1rem;
+            border-radius: 1rem;
+        }
+
+        .kiosk-form button {
+            min-height: 3.5rem;
+            min-width: 10rem;
+            font-size: 0.72rem;
+        }
+
+        .kiosk-feedback {
+            min-height: 1.75rem;
+            font-size: var(--step--1);
+            color: var(--color-dark-text-muted);
+        }
+
+        .kiosk-feedback[data-state="ok"] {
+            color: #b9e6b4;
+            animation: kioskCheckInPulse 500ms var(--ease-out);
+        }
+
+        .kiosk-list-wrap {
+            border-top: 1px solid var(--color-dark-line);
+            padding-top: var(--space-md);
+        }
+
+        .kiosk-list {
+            list-style: none;
+            margin: var(--space-sm) 0 0;
+            padding: 0;
+            display: grid;
+            gap: var(--space-xs);
+            max-height: 18rem;
+            overflow: auto;
+        }
+
+        .kiosk-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            align-items: baseline;
+            border: 1px solid var(--color-dark-line);
+            border-radius: var(--radius-md);
+            background: rgba(255, 248, 238, 0.03);
+            padding: 0.55rem 0.75rem;
+        }
+
+        .kiosk-list time {
+            font-family: var(--font-mono);
+            font-size: var(--step--2);
+            color: var(--color-dark-text-muted);
+        }
+
+        @keyframes kioskCheckInPulse {
+            from { transform: scale(0.98); opacity: 0.4; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 760px) {
+            .kiosk-form {
+                grid-template-columns: 1fr;
+            }
+            .kiosk-form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<main class="kiosk-shell" aria-labelledby="kiosk-title">
+    <header class="kiosk-header">
+        <span class="brand-mark brand-mark--oulm" role="img" aria-label="OULM"></span>
+        <h1 id="kiosk-title">Welcome to the Woodland Cafe</h1>
+    </header>
+
+    <form class="kiosk-form" id="kiosk-form">
+        <label class="sr-only" for="kiosk-name">Your name or OULM handle</label>
+        <input id="kiosk-name" name="name" type="text" autocomplete="off" placeholder="Your name or OULM handle" required>
+        <button class="button button--bronze button--lg" type="submit">Check in</button>
+    </form>
+
+    <p class="kiosk-feedback" id="kiosk-feedback" aria-live="polite"></p>
+
+    <section class="kiosk-list-wrap" aria-labelledby="kiosk-list-title">
+        <p class="eyebrow" id="kiosk-list-title">Today's check-ins</p>
+        <ul class="kiosk-list" id="kiosk-list"></ul>
+    </section>
+</main>
+
+<script>
+    (function kioskCheckIn() {
+        const storageKey = "oulm_kiosk_checkins";
+        const form = document.getElementById("kiosk-form");
+        const input = document.getElementById("kiosk-name");
+        const list = document.getElementById("kiosk-list");
+        const feedback = document.getElementById("kiosk-feedback");
+
+        function readCheckIns() {
+            try {
+                return JSON.parse(sessionStorage.getItem(storageKey) || "[]");
+            } catch {
+                return [];
+            }
+        }
+
+        function writeCheckIns(items) {
+            sessionStorage.setItem(storageKey, JSON.stringify(items));
+        }
+
+        function render() {
+            const rows = readCheckIns();
+            if (!rows.length) {
+                list.innerHTML = "<li><span>No one yet. You can be first.</span><time>--:--</time></li>";
+                return;
+            }
+            list.innerHTML = rows
+                .slice()
+                .reverse()
+                .map((row) => `<li><span>${row.name}</span><time>${row.time}</time></li>`)
+                .join("");
+        }
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = String(input.value || "").trim();
+            if (!name) return;
+            const now = new Date();
+            const item = {
+                name,
+                time: now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+            };
+            const all = readCheckIns();
+            all.push(item);
+            writeCheckIns(all.slice(-100));
+            feedback.dataset.state = "ok";
+            feedback.textContent = `${name} checked in. Welcome in.`;
+            render();
+            form.reset();
+            input.focus();
+            window.setTimeout(() => {
+                feedback.dataset.state = "";
+                feedback.textContent = "";
+            }, 3000);
+        });
+
+        render();
+    })();
+</script>
+</body>
+</html>

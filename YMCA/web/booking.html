@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="OULM by One YMCA — Woodland Café, Leavesden, youth community across Hertfordshire, Bedfordshire, and Buckinghamshire.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — Booking</title>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/transitions.css">
+    <link rel="stylesheet" href="assets/css/pages/host.css">
+</head>
+<body data-page="booking">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app-stage">
+<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
+<div class="app">
+    <header class="app-bar app-bar--sub app-bar--with-back">
+        <a href="host.html" class="app-bar__back" aria-label="Back to host">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </a>
+        <a href="homebase.html" class="app-bar__logo-link app-bar__logo-link--sm" aria-label="OULM Homebase">
+            <img src="assets/OULM.svg" alt="" width="88" height="24" decoding="async">
+        </a>
+        <h1 class="app-bar__title">Booking Wizard</h1>
+    </header>
+
+    <main class="screen" id="main">
+        <form class="stepper screen__pad" id="booking-form" data-stepper>
+            <div class="river-progress" aria-hidden="true">
+                <div class="river-progress__bed"></div>
+                <div class="river-progress__flow" data-stepper-progress-fill style="width:20%"></div>
+            </div>
+            <p class="river-progress__label"><span class="eyebrow">River flow</span> Steps fill like the Ouse moving downstream.</p>
+            <div class="stepper__rail">
+                <button class="stepper__badge" type="button" data-step-badge>Intent</button>
+                <button class="stepper__badge" type="button" data-step-badge>Venue</button>
+                <button class="stepper__badge" type="button" data-step-badge>Access</button>
+                <button class="stepper__badge" type="button" data-step-badge>Resources</button>
+                <button class="stepper__badge" type="button" data-step-badge>Review</button>
+            </div>
+
+            <p id="booking-status-note" class="eyebrow"></p>
+
+            <section class="stepper__panel" data-step-panel>
+                <div class="field">
+                    <label for="event-name">Event name</label>
+                    <input id="event-name" name="eventName" type="text" placeholder="Community Sketch Club">
+                </div>
+                <div class="field">
+                    <label for="event-type">Format</label>
+                    <select id="event-type" name="eventType">
+                        <option value="Social">Social</option>
+                        <option value="Skill-share">Skill-share</option>
+                        <option value="Screening">Screening</option>
+                        <option value="Build night">Build night</option>
+                        <option value="Mentor circle">Mentor circle</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="safety-intent">Host intent and room tone</label>
+                    <textarea id="safety-intent" name="safetyIntent" placeholder="What kind of atmosphere? How will newcomers be welcomed?"></textarea>
+                </div>
+            </section>
+
+            <section class="stepper__panel" data-step-panel>
+                <div class="form-grid form-grid--two">
+                    <div class="field">
+                        <label for="venue-preference">Venue</label>
+                        <select id="venue-preference" name="venuePreference">
+                            <option value="Woodland Café (OULM HQ)">Woodland Café (OULM HQ)</option>
+                            <option value="Bedford Makers Room">Bedford Makers Room</option>
+                            <option value="High Wycombe Forum">High Wycombe Forum</option>
+                            <option value="Request new venue">Request new venue</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="recurrence">Recurrence</label>
+                        <select id="recurrence" name="recurrence">
+                            <option value="One-off">One-off</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Fortnightly">Fortnightly</option>
+                            <option value="Monthly">Monthly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="capacity-tier">Capacity</label>
+                    <select id="capacity-tier" name="capacityTier">
+                        <option value="10-15">10-15</option>
+                        <option value="16-25">16-25</option>
+                        <option value="26-40">26-40</option>
+                        <option value="40+">40+</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="stepper__panel" data-step-panel>
+                <div class="field">
+                    <label for="accessibility">Accessibility and inclusion</label>
+                    <textarea id="accessibility" name="accessibility" placeholder="Step-free, quieter seating, sensory, travel support..."></textarea>
+                </div>
+                <div class="field">
+                    <label for="equipment">Equipment needs</label>
+                    <textarea id="equipment" name="equipment" placeholder="Projection, speakers, tools, food setup..."></textarea>
+                </div>
+            </section>
+
+            <section class="stepper__panel" data-step-panel>
+                <div class="field">
+                    <label for="resourcing">Resourcing model</label>
+                    <select id="resourcing" name="resourcing">
+                        <option value="Free">Free</option>
+                        <option value="Subsidised">Subsidised</option>
+                        <option value="Partner-funded">Partner-funded</option>
+                        <option value="Ticketed">Ticketed</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="stepper__panel" data-step-panel>
+                <div class="card">
+                    <span class="eyebrow">Review</span>
+                    <p>Your submission will be stored locally as a faux pending draft.</p>
+                    <div class="stack--tight" style="margin-top:var(--space-sm)">
+                        <div style="display:flex;gap:var(--space-sm);align-items:center">
+                            <span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--color-sage)"></span>
+                            <span>Draft — intent and venue</span>
+                        </div>
+                        <div style="display:flex;gap:var(--space-sm);align-items:center">
+                            <span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--color-bronze)"></span>
+                            <span>Pending review — stewardship</span>
+                        </div>
+                        <div style="display:flex;gap:var(--space-sm);align-items:center">
+                            <span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--color-blue)"></span>
+                            <span>Approved — published</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="booking-feedback" class="empty-state">No draft saved yet.</div>
+        </form>
+    </main>
+
+    <div class="action-bar">
+        <button class="button--ghost" type="button" data-step-prev>Previous</button>
+        <button class="button button--lg" type="button" data-step-next>Next</button>
+        <button class="button--bronze button button--lg" type="button" data-step-submit hidden>Save draft</button>
+    </div>
+
+    <nav class="tab-bar" aria-label="Main">
+        <a href="homebase.html" class="tab-bar__item" data-tab="homebase">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span class="tab-bar__label">Home</span>
+        </a>
+        <a href="events.html" class="tab-bar__item" data-tab="events">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="tab-bar__label">Events</span>
+        </a>
+        <a href="map.html" class="tab-bar__item" data-tab="map">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="tab-bar__label">Map</span>
+        </a>
+        <a href="host.html" class="tab-bar__item" data-tab="host">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <span class="tab-bar__label">Host</span>
+        </a>
+        <a href="progress.html" class="tab-bar__item" data-tab="progress">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span class="tab-bar__label">Progress</span>
+        </a>
+    </nav>
+</div>
+</div>
+<script src="register-sw.js" defer></script>
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/branding.css">
     <style>
         .offline {
             min-height: 100%;
@@ -58,7 +59,7 @@
         <section class="offline__card" aria-labelledby="offline-title">
             <span class="eyebrow" style="color:var(--color-dark-text-muted)">No connection</span>
             <h1 id="offline-title">You are offline.</h1>
-            <p>OULM needs a network connection for maps and some assets. Anything you already opened may still be available from cache.</p>
+            <p><span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span> needs a network connection for maps and some assets. Anything you already opened may still be available from cache.</p>
             <div class="offline__actions">
                 <a class="button" href="homebase.html">Try Homebase</a>
                 <button class="button--ghost" type="button" style="color:var(--color-dark-text);border-color:var(--color-dark-line)" onclick="location.reload()">Retry</button>

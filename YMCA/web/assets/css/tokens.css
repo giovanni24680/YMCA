@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+    color-scheme: light;
+
+    --color-paper: #faf5ee;
+    --color-paper-warm: #f5ece0;
+    --color-paper-elevated: #fffcf7;
+    --color-paper-inset: #ede4d6;
+
+    --color-dark: #1a1210;
+    --color-dark-elevated: #231c18;
+    --color-dark-surface: #2e2420;
+    --color-dark-muted: #3d322c;
+    --color-dark-line: rgba(255, 248, 238, 0.1);
+    --color-dark-text: #f5ece0;
+    --color-dark-text-muted: rgba(245, 236, 224, 0.55);
+
+    --color-ink: #2e2420;
+    --color-ink-strong: #1a1210;
+    --color-ink-muted: #8a7a72;
+    --color-ink-faint: #b5a89e;
+    --color-line: rgba(46, 36, 32, 0.08);
+    --color-line-strong: rgba(46, 36, 32, 0.16);
+
+    --color-bronze: #c2753a;
+    --color-bronze-bright: #d4853e;
+    --color-gold: #daa840;
+    --color-gold-muted: rgba(218, 168, 64, 0.14);
+    --color-coral: #e08a6a;
+    --color-sage: #7e9476;
+    --color-sage-muted: rgba(126, 148, 118, 0.12);
+    --color-blue: #7892b0;
+    --color-blue-muted: rgba(120, 146, 176, 0.12);
+
+    --color-focus: rgba(194, 117, 58, 0.5);
+    --color-shadow: rgba(26, 18, 16, 0.04);
+    --color-shadow-md: rgba(26, 18, 16, 0.07);
+    --color-shadow-heavy: rgba(26, 18, 16, 0.14);
+
+    --font-heading: "Bebas Neue", "Impact", "Arial Narrow", sans-serif;
+    --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+    --step--2: clamp(0.65rem, 0.63rem + 0.1vw, 0.72rem);
+    --step--1: clamp(0.78rem, 0.75rem + 0.14vw, 0.86rem);
+    --step-0: clamp(0.94rem, 0.9rem + 0.2vw, 1.06rem);
+    --step-1: clamp(1.13rem, 1.04rem + 0.44vw, 1.42rem);
+    --step-2: clamp(1.42rem, 1.24rem + 0.88vw, 2rem);
+    --step-3: clamp(1.8rem, 1.48rem + 1.5vw, 2.82rem);
+    --step-4: clamp(2.28rem, 1.78rem + 2.4vw, 4rem);
+    --step-5: clamp(2.88rem, 2.08rem + 3.6vw, 5.6rem);
+    --step-6: clamp(3.6rem, 2.4rem + 5.4vw, 7.8rem);
+
+    --space-3xs: 0.15rem;
+    --space-2xs: 0.3rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4.5rem;
+    --space-4xl: 6rem;
+    --space-5xl: 9rem;
+    --space-6xl: 14rem;
+
+    --radius-xs: 0.4rem;
+    --radius-sm: 0.6rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2.2rem;
+    --radius-pill: 999px;
+
+    --shadow-sm: 0 1px 3px var(--color-shadow), 0 1px 2px var(--color-shadow);
+    --shadow-md: 0 4px 16px var(--color-shadow-md), 0 1px 4px var(--color-shadow);
+    --shadow-lg: 0 12px 40px var(--color-shadow-md), 0 4px 12px var(--color-shadow);
+    --shadow-xl: 0 24px 64px var(--color-shadow-heavy), 0 8px 20px var(--color-shadow-md);
+    --shadow-glow: 0 0 48px rgba(194, 117, 58, 0.22), 0 0 14px rgba(194, 117, 58, 0.14);
+    --shadow-glow-lg: 0 0 80px rgba(194, 117, 58, 0.28), 0 0 24px rgba(218, 168, 64, 0.18);
+
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --dur-fast: 150ms;
+    --dur-base: 250ms;
+    --dur-slow: 450ms;
+    --dur-reveal: 600ms;
+    --dur-hero: 1200ms;
+
+    --site-max: 1120px;
+    --site-wide: 1400px;
+    /* Desktop “phone preview” — wide viewports only (see layout.css) */
+    --device-frame-breakpoint: 880px;
+    --device-frame-max-w: 26.25rem;
+    --device-frame-radius: 2.25rem;
+    --device-stage-bg: #060504;
+    --device-chrome-bg: #ebe6df;
+    --device-chrome-dot: #ada298;
+
+    --app-bar-h: 3rem;
+    --tab-bar-h: 3.2rem;
+    /* Minimum touch target (WCAG 2.5.5 / platform HIG) */
+    --tap-target-min: 2.75rem;
+
+    --z-base: 0;
+    --z-ambient: 1;
+    --z-content: 10;
+    --z-header: 100;
+    --z-bottom-nav: 100;
+    --z-sheet: 200;
+    --z-modal: 300;
+    --z-toast: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --dur-fast: 1ms;
+        --dur-base: 1ms;
+        --dur-slow: 1ms;
+        --dur-reveal: 1ms;
+        --dur-hero: 1ms;
+    }
+}

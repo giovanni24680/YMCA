@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,0..100,0..1&family=Newsreader:opsz,wght@6..72,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
     color-scheme: light;
@@ -39,9 +39,9 @@
     --color-shadow-heavy: rgba(26, 18, 16, 0.14);
 
     --font-heading: "Bebas Neue", "Impact", "Arial Narrow", sans-serif;
-    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-    --font-body: "Newsreader", Georgia, "Times New Roman", serif;
-    --font-mono: "IBM Plex Mono", "Courier New", monospace;
+    --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
     --step--2: clamp(0.65rem, 0.63rem + 0.1vw, 0.72rem);
     --step--1: clamp(0.78rem, 0.75rem + 0.14vw, 0.86rem);
@@ -93,8 +93,9 @@
     --site-wide: 1400px;
     /* Desktop “phone preview” — wide viewports only (see layout.css) */
     --device-frame-breakpoint: 880px;
-    --device-frame-max-w: 26.25rem;
-    --device-frame-radius: 2.25rem;
+    --device-frame-max-w: 25.75rem;
+    --device-frame-aspect: 412 / 915;
+    --device-frame-radius: 2.75rem;
     --device-stage-bg: #060504;
     --device-chrome-bg: #ebe6df;
     --device-chrome-dot: #ada298;

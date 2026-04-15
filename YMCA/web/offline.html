@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="OULM by One YMCA — offline notice.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — Offline</title>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/branding.css">
+    <style>
+        .offline {
+            min-height: 100%;
+            display: grid;
+            place-items: center;
+            padding: var(--space-xl);
+        }
+        .offline__card {
+            width: min(100%, 28rem);
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-dark-line);
+            background: var(--color-dark-elevated);
+            color: var(--color-dark-text);
+            display: grid;
+            gap: var(--space-md);
+        }
+        .offline__card h1 {
+            color: var(--color-dark-text);
+            font-size: var(--step-2);
+        }
+        .offline__card p {
+            color: var(--color-dark-text-muted);
+            font-size: var(--step--1);
+            line-height: 1.6;
+        }
+        .offline__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+        .offline__actions a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body data-page="offline">
+    <main class="offline" id="main">
+        <section class="offline__card" aria-labelledby="offline-title">
+            <span class="eyebrow" style="color:var(--color-dark-text-muted)">No connection</span>
+            <h1 id="offline-title">You are offline.</h1>
+            <p><img src="assets/OULM.svg" alt="OULM" class="brand-inline" style="filter:brightness(2)" decoding="async"> needs a network connection for maps and some assets. Anything you already opened may still be available from cache.</p>
+            <div class="offline__actions">
+                <a class="button" href="homebase.html">Try Homebase</a>
+                <button class="button--ghost" type="button" style="color:var(--color-dark-text);border-color:var(--color-dark-line)" onclick="location.reload()">Retry</button>
+            </div>
+        </section>
+    </main>
+    <script src="register-sw.js" defer></script>
+</body>
+</html>

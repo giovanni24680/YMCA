@@ -1,0 +1,72 @@
+.guide-hero__brand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+}
+
+.guide-hero__lockup {
+    max-width: min(90vw, 18rem);
+    height: auto;
+}
+
+.guide-table-title {
+    margin-bottom: var(--space-md);
+}
+
+.guide-table {
+    display: grid;
+    gap: 0;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.guide-table__row {
+    display: grid;
+    grid-template-columns: minmax(5rem, 28%) 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-line);
+    align-items: start;
+}
+
+.guide-table__row:last-child {
+    border-bottom: 0;
+}
+
+.guide-table__q {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-bronze);
+}
+
+.guide-table__a {
+    font-size: var(--step--1);
+    color: var(--color-ink-muted);
+    line-height: 1.55;
+}
+
+.handshake-form {
+    margin-top: var(--space-md);
+    display: grid;
+    gap: var(--space-sm);
+}
+
+.handshake-form__feedback {
+    font-size: var(--step--1);
+    min-height: 1.25em;
+}
+
+.gate-card--handshake h2 {
+    margin-top: var(--space-xs);
+}
+
+.guide-footer-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    padding-bottom: var(--space-2xl);
+}

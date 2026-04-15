@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="OULM by One YMCA — progress, signals, and Woodland Café handshake unlock.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — Progress</title>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/transitions.css">
+    <link rel="stylesheet" href="assets/css/pages/progress.css">
+</head>
+<body data-page="progress">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app-stage">
+<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
+<div class="app">
+    <header class="app-bar">
+        <a href="homebase.html" class="app-bar__logo-link" aria-label="OULM Homebase">
+            <img src="assets/OULM.svg" alt="" width="100" height="28" decoding="async">
+        </a>
+        <h1 class="app-bar__title">Progress</h1>
+        <button class="app-bar__action" type="button" data-export-state data-export-filename="oulm-export.json" aria-label="Export data">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+    </header>
+
+    <main class="screen" id="main">
+        <section class="screen__pad" id="progress-gate-status"></section>
+
+        <section class="screen__pad" id="handshake">
+            <div class="card gate-card gate-card--handshake">
+                <span class="eyebrow">Handshake unlock</span>
+                <h2 class="path-banner__title">Level up in the room</h2>
+                <p style="font-size:var(--step--1);color:var(--color-ink-muted);line-height:1.55">After your Woodland Café chat, your mentor types the handshake code here — the member lane turns on immediately.</p>
+                <form class="handshake-form" data-handshake-form>
+                    <div class="field">
+                        <label for="handshake-code-progress">Handshake code</label>
+                        <input id="handshake-code-progress" type="text" autocomplete="off" data-handshake-input placeholder="From your mentor">
+                    </div>
+                    <button class="button--bronze button" type="submit">Unlock member lane</button>
+                    <p class="handshake-form__feedback" data-handshake-feedback aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="screen__pad">
+            <div class="profile-card" id="profile-card">
+                <div class="profile-card__head">
+                    <div class="profile-card__avatar">O</div>
+                    <div class="stack--tight">
+                        <h3>Newcomer</h3>
+                        <span class="eyebrow"><img src="assets/OULM.svg" alt="OULM" class="brand-inline" decoding="async"> portfolio</span>
+                    </div>
+                </div>
+                <div class="role-ladder" id="role-ladder"></div>
+            </div>
+        </section>
+
+        <div class="progress-metrics" id="progress-metrics"></div>
+
+        <section class="screen__section pwa-tools" aria-labelledby="pwa-tools-title">
+            <div class="stack">
+                <h2 id="pwa-tools-title" class="pwa-tools__title">PWA bridge</h2>
+                <p class="lede">Web Push and Background Sync for this static build. Your SwiftUI co-owner can mirror flows with APNs + BGTaskScheduler; keep VAPID secrets on the server only.</p>
+            </div>
+
+            <div class="pwa-tools__grid">
+                <div class="card pwa-tools__panel" data-pwa-push>
+                    <span class="eyebrow">Web Push</span>
+                    <p style="font-size:var(--step--1);color:var(--color-ink-muted)">Subscribe on this device, then copy the JSON payload for your push gateway.</p>
+                    <div class="cluster">
+                        <button class="button" type="button" data-push-enable>Enable notifications</button>
+                        <button class="button--ghost" type="button" data-push-disable>Disable</button>
+                    </div>
+                    <p class="pwa-tools__status" data-push-feedback aria-live="polite"></p>
+                    <div class="field">
+                        <label for="push-sub-json">Push subscription JSON</label>
+                        <textarea id="push-sub-json" class="pwa-tools__textarea" data-push-subscription-json rows="6" spellcheck="false" placeholder="Subscribe to populate…"></textarea>
+                    </div>
+                </div>
+
+                <div class="card pwa-tools__panel" data-pwa-sync>
+                    <span class="eyebrow">Background Sync</span>
+                    <p style="font-size:var(--step--1);color:var(--color-ink-muted)">Queue a JSON export for when the browser fires Background Sync (Chromium). If unsupported, we export immediately.</p>
+                    <div class="cluster">
+                        <button class="button" type="button" data-sync-queue-export>Queue export</button>
+                        <button class="button--ghost" type="button" data-sync-drain>Flush queue</button>
+                    </div>
+                    <div class="cluster" style="margin-top:var(--space-sm)">
+                        <button class="button--ghost" type="button" data-periodic-sync>Register periodic refresh</button>
+                    </div>
+                    <p class="pwa-tools__status" data-sync-feedback aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen__section">
+            <div class="stack">
+                <span class="eyebrow">Signals</span>
+                <div class="signal-grid" id="progress-signals"></div>
+            </div>
+        </section>
+
+        <section class="screen__section">
+            <div class="stack">
+                <span class="eyebrow">Recent activity</span>
+                <ul class="activity-list" id="progress-history" role="list"></ul>
+                <div id="progress-rsvp"></div>
+            </div>
+        </section>
+
+        <section class="screen__section">
+            <div class="stack">
+                <span class="eyebrow">External proof scaffold</span>
+                <form class="form-grid" id="external-links-form">
+                    <div class="field">
+                        <label for="github-link">GitHub</label>
+                        <input id="github-link" name="github" type="url" placeholder="https://github.com/you">
+                    </div>
+                    <div class="field">
+                        <label for="linkedin-link">LinkedIn</label>
+                        <input id="linkedin-link" name="linkedin" type="url" placeholder="https://linkedin.com/in/you">
+                    </div>
+                    <div class="field">
+                        <label for="project-link">Project link</label>
+                        <input id="project-link" name="project" type="url" placeholder="https://example.com/project">
+                    </div>
+                    <button class="button" type="submit">Save proof</button>
+                    <p id="external-links-feedback" class="eyebrow"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="screen__section">
+            <div class="stack" style="text-align:center" id="partner-pathways-cta"></div>
+            <div class="stack" style="text-align:center;margin-top:var(--space-md)">
+                <a class="button-link" href="about.html">About <img src="assets/OULM.svg" alt="OULM" class="brand-inline" decoding="async"></a>
+            </div>
+        </section>
+    </main>
+
+    <nav class="tab-bar" aria-label="Main">
+        <a href="homebase.html" class="tab-bar__item" data-tab="homebase">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span class="tab-bar__label">Home</span>
+        </a>
+        <a href="events.html" class="tab-bar__item" data-tab="events">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="tab-bar__label">Events</span>
+        </a>
+        <a href="map.html" class="tab-bar__item" data-tab="map">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="tab-bar__label">Map</span>
+        </a>
+        <a href="host.html" class="tab-bar__item" data-tab="host">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <span class="tab-bar__label">Host</span>
+        </a>
+        <a href="progress.html" class="tab-bar__item" data-tab="progress">
+            <svg class="tab-bar__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span class="tab-bar__label">Progress</span>
+        </a>
+    </nav>
+</div>
+</div>
+<script src="register-sw.js" defer></script>
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

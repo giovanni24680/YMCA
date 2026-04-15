@@ -1,0 +1,84 @@
+/* OULM × One YMCA wordmarks — use with <img> for literal brand marks. */
+
+.app-bar__logo-link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    flex-shrink: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.app-bar__logo-link img {
+    height: 1.55rem;
+    width: auto;
+    display: block;
+}
+
+.app-bar__logo-link--sm img {
+    height: 1.2rem;
+}
+
+.app-bar--with-back .app-bar__logo-link img {
+    height: 1.15rem;
+}
+
+.brand-lockup-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+}
+
+.brand-lockup-footer img {
+    height: clamp(1.75rem, 4vw, 2.25rem);
+    width: auto;
+    display: block;
+}
+
+.brand-lockup-footer .brand-lockup-footer__ymca img {
+    height: clamp(1.5rem, 3.5vw, 2rem);
+}
+
+/* Inline brand marks within flowing text */
+.brand-inline {
+    display: inline-block;
+    height: 0.72em;
+    width: auto;
+    vertical-align: -0.04em;
+    margin: 0 0.08em;
+}
+
+.brand-inline--lg {
+    height: 0.85em;
+}
+
+.brand-inline--ymca {
+    height: 1em;
+    vertical-align: -0.12em;
+}
+
+h1 .brand-inline,
+h2 .brand-inline,
+h3 .brand-inline {
+    height: 0.65em;
+    vertical-align: 0;
+}
+
+.eyebrow .brand-inline {
+    height: 0.8em;
+    vertical-align: -0.06em;
+}
+
+.lede .brand-inline {
+    height: 0.78em;
+}
+
+.button .brand-inline,
+.button--ghost .brand-inline,
+.button-link .brand-inline {
+    height: 0.85em;
+    vertical-align: -0.08em;
+}

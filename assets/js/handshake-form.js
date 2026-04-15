@@ -21,13 +21,15 @@ export function initHandshakeForm(root = document) {
         }
         if (VALID_HANDSHAKE_CODES.includes(code)) {
             mergeUserProfile({ isVerified: true });
+            window.sessionStorage.setItem("oulm_just_verified", "1");
+            document.body?.setAttribute("data-bloom", "active");
             if (feedback) {
                 feedback.textContent = "You are in the flow. Host tools and Partner Pathways are live — welcome to the member lane.";
             }
             form.querySelectorAll("input,button").forEach((el) => { el.disabled = true; });
             window.setTimeout(() => {
                 window.location.href = "homebase.html";
-            }, 900);
+            }, 1400);
         } else if (feedback) {
             feedback.textContent = "That code did not match. Ask a mentor at the Woodland Café — there is no shame in a second try.";
         }

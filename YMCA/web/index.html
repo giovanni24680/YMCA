@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="OULM by One YMCA — digital connective tissue for the Woodland Café, Leavesden, and youth community across Herts, Beds, and Bucks.">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a1210">
+    <meta name="application-name" content="OULM">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OULM">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <title>OULM — The Calibrator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="index">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-noise" aria-hidden="true"></div>
+    <main class="calibrator" id="main" aria-labelledby="calibrator-title">
+        <header class="calibrator__header">
+            <img src="assets/OULM%20Lockup.svg" alt="OULM by One YMCA" class="calibrator__hero-lockup" decoding="async">
+            <p id="calibrator-title" class="calibrator__title">The Calibrator</p>
+            <p class="calibrator__subtitle">A vibe-check and a contract before you touch a booking button.</p>
+        </header>
+
+        <div class="calibrator__viewport">
+            <div class="calibrator__river" aria-hidden="true"></div>
+            <div class="calibrator__slides" data-calibrator-track></div>
+        </div>
+
+        <p class="calibrator__progress-label" data-calibrator-slide-label></p>
+
+        <div class="calibrator__dots" data-calibrator-dots role="tablist" aria-label="Calibrator slides"></div>
+
+        <div class="calibrator__controls">
+            <button type="button" class="button--ghost calibrator__btn" data-calibrator-prev>Back</button>
+            <button type="button" class="button calibrator__btn" data-calibrator-next>Next</button>
+            <button type="button" class="button calibrator__btn calibrator__btn--enter" data-calibrator-enter hidden>Enter the <img src="assets/OULM.svg" alt="OULM" class="brand-inline" decoding="async"> flow</button>
+        </div>
+
+        <footer class="brand-lockup-footer calibrator__footer">
+            <a href="guide.html" class="button-link calibrator__guide-link">How <img src="assets/OULM.svg" alt="OULM" class="brand-inline" decoding="async"> works (pre-gate)</a>
+        </footer>
+    </main>
+    <script src="register-sw.js" defer></script>
+    <script type="module" src="assets/js/index-entry.js"></script>
+</body>
+</html>

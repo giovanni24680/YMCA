@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-const VERSION = "2026-04-15-oulm-4";
+const VERSION = "2026-04-15-oulm-7";
 const CACHE_STATIC = `oulm-static-${VERSION}`;
 
 const DB_NAME = "oulm-sw-sync";
@@ -21,6 +21,8 @@ const PRECACHE_PATHS = [
     "./progress.html",
     "./partners.html",
     "./about.html",
+    "./guide.html",
+    "./kiosk.html",
     "./wireframes.html",
     "./style.css",
     "./main.js",
@@ -29,6 +31,7 @@ const PRECACHE_PATHS = [
     "./assets/css/base.css",
     "./assets/css/layout.css",
     "./assets/css/components.css",
+    "./assets/css/transitions.css",
     "./assets/css/branding.css",
     "./assets/css/pages/guide.css",
     "./assets/css/pages/homebase.css",
@@ -62,10 +65,7 @@ const PRECACHE_PATHS = [
     "./assets/icons/favicon-32.png",
     "./assets/icons/icon-192.png",
     "./assets/icons/icon-512.png",
-    "./assets/icons/icon-512-maskable.png",
-    "./assets/OULM.svg",
-    "./assets/YMCA.svg",
-    "./assets/OULM Lockup.svg"
+    "./assets/icons/icon-512-maskable.png"
 ];
 
 function toAbsoluteUrl(path) {

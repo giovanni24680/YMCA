@@ -1,0 +1,24 @@
+/* ── Minimal reveal: opacity only, no theatrics ── */
+
+[data-reveal] {
+    opacity: 0;
+    transition: opacity 400ms var(--ease-out);
+}
+
+[data-reveal].is-revealed {
+    opacity: 1;
+}
+
+.screen--exiting {
+    opacity: 0;
+    transition: opacity 100ms var(--ease-out);
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    .screen--exiting {
+        transition: none !important;
+        opacity: 1 !important;
+    }
+}

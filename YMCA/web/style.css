@@ -1,0 +1,209 @@
+@import url("./assets/css/tokens.css");
+@import url("./assets/css/base.css");
+@import url("./assets/css/components.css");
+@import url("./assets/css/branding.css");
+
+body[data-page="index"] {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background: var(--color-dark);
+    color: var(--color-dark-text);
+}
+
+body[data-page="index"] .skip-link:focus-visible {
+    outline-color: rgba(245, 236, 224, 0.9);
+}
+
+.calibrator {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto auto auto auto;
+    padding: var(--space-md) var(--space-md) var(--space-lg);
+    gap: var(--space-sm);
+    max-width: 32rem;
+    margin-inline: auto;
+}
+
+.calibrator__header {
+    text-align: center;
+    padding-top: var(--space-sm);
+}
+
+.calibrator__hero-lockup {
+    max-width: min(80vw, 16rem);
+    height: auto;
+    margin-inline: auto;
+    display: block;
+    filter: brightness(1.08);
+}
+
+.calibrator__title {
+    font-family: var(--font-heading);
+    font-size: var(--step-2);
+    letter-spacing: 0.06em;
+    color: var(--color-gold);
+    margin-top: var(--space-sm);
+}
+
+.calibrator__subtitle {
+    font-size: var(--step--1);
+    color: var(--color-dark-text-muted);
+    line-height: 1.45;
+    margin-top: var(--space-xs);
+    max-width: 26rem;
+    margin-inline: auto;
+}
+
+.calibrator__viewport {
+    position: relative;
+    min-height: 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-dark-line);
+    background: var(--color-dark-elevated);
+    overflow: hidden;
+}
+
+.calibrator__river {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(126, 148, 118, 0.08) 35%,
+        rgba(194, 117, 58, 0.12) 55%,
+        rgba(218, 168, 64, 0.1) 75%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: calibratorRiver 14s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes calibratorRiver {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .calibrator__river { animation: none; }
+}
+
+.calibrator__slides {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    min-height: 11rem;
+}
+
+.calibrator__slide {
+    position: absolute;
+    inset: 0;
+    padding: var(--space-lg);
+    display: grid;
+    align-content: center;
+    gap: var(--space-sm);
+    opacity: 0;
+    transform: translateY(0.6rem);
+    transition:
+        opacity var(--dur-slow) var(--ease-out),
+        transform var(--dur-slow) var(--ease-out);
+    pointer-events: none;
+}
+
+.calibrator__slide[data-calibrator-slide-active="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.calibrator__kicker {
+    color: var(--color-dark-text-muted);
+}
+
+.calibrator__body {
+    font-size: var(--step-1);
+    line-height: 1.45;
+    color: var(--color-dark-text);
+}
+
+.calibrator__progress-label {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-dark-text-muted);
+}
+
+.calibrator__dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+}
+
+.calibrator__dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    background: var(--color-dark-muted);
+    cursor: pointer;
+    transition: transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+
+.calibrator__dot[aria-current="true"] {
+    background: var(--color-bronze);
+    transform: scale(1.25);
+}
+
+.calibrator__controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.calibrator__btn.button {
+    background: linear-gradient(135deg, var(--color-bronze), var(--color-bronze-bright));
+    box-shadow: var(--shadow-glow-lg);
+}
+
+.calibrator__btn.button--ghost {
+    border: 1px solid var(--color-dark-line);
+    color: var(--color-dark-text-muted);
+}
+
+.calibrator__btn--enter {
+    flex: 1 1 100%;
+    justify-self: stretch;
+}
+
+.calibrator__footer {
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.calibrator__guide-link {
+    color: var(--color-dark-text-muted);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+    .calibrator__btn.button:hover:not(:disabled) {
+        filter: brightness(1.06);
+    }
+
+    .calibrator__btn.button--ghost:hover:not(:disabled) {
+        border-color: rgba(255, 248, 238, 0.35);
+        color: var(--color-dark-text);
+        background: rgba(255, 248, 238, 0.06);
+    }
+}
+
+.calibrator__btn:focus-visible {
+    outline: 2px solid rgba(245, 236, 224, 0.95);
+    outline-offset: 3px;
+}

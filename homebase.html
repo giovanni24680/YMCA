@@ -18,16 +18,17 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/transitions.css">
     <link rel="stylesheet" href="assets/css/pages/homebase.css">
 </head>
 <body data-page="homebase">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="app-stage">
-<div class="app-stage__chrome" aria-hidden="true"><span class="app-stage__dots"><i></i><i></i></span></div>
+<div class="app-stage__status" aria-hidden="true"><span>9:41</span><span>5G ●●●</span></div>
 <div class="app">
     <header class="app-bar">
         <a href="homebase.html" class="app-bar__logo-link" aria-label="OULM Homebase">
-            <img src="assets/OULM.svg" alt="" width="120" height="32" decoding="async">
+            <span class="brand-mark brand-mark--oulm" aria-hidden="true"></span>
         </a>
     </header>
 
@@ -38,9 +39,10 @@
             <div class="homebase-hero__scene"></div>
             <div class="homebase-hero__gradient"></div>
             <div class="homebase-hero__content">
-                <img src="assets/OULM.svg" alt="OULM" class="homebase-hero__wordmark" width="120" height="32" decoding="async">
+                <span class="brand-mark brand-mark--oulm homebase-hero__wordmark" role="img" aria-label="OULM"></span>
                 <span class="eyebrow homebase-hero__kicker">Herts / Beds / Bucks · Living HQ</span>
                 <h1>A softer way<br>to show up.</h1>
+                <span style="display:block;font-family:var(--font-mono);font-size:var(--step--2);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-dark-text-muted);margin-top:var(--space-xs)">Woodland Cafe, Leavesden Country Park</span>
             </div>
         </section>
 
@@ -73,6 +75,7 @@
             <div class="stack">
                 <span class="eyebrow">The insight</span>
                 <blockquote style="color:var(--color-dark-text);border-color:var(--color-gold)">The primary barrier is not technical friction. It is the psychological anxiety of showing up.</blockquote>
+                <p style="font-family:var(--font-mono);font-size:var(--step--2);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-dark-text-muted)">Observed across Hertfordshire, Bedfordshire &amp; Buckinghamshire</p>
                 <div class="cluster">
                     <a class="button--bronze button" href="progress.html">Progress</a>
                     <a class="button--ghost" href="host.html" style="color:var(--color-dark-text);border-color:var(--color-dark-line)">Host</a>

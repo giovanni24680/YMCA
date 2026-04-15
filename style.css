@@ -30,20 +30,11 @@ body[data-page="index"] .skip-link:focus-visible {
     padding-top: var(--space-sm);
 }
 
-.calibrator__brand-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-md);
-}
-
-.calibrator__wordmark {
-    max-width: min(72vw, 11rem);
+.calibrator__hero-lockup {
+    max-width: min(80vw, 16rem);
     height: auto;
-}
-
-.calibrator__parent-mark img {
-    opacity: 0.9;
+    margin-inline: auto;
+    display: block;
     filter: brightness(1.08);
 }
 
@@ -112,6 +103,7 @@ body[data-page="index"] .skip-link:focus-visible {
     display: grid;
     align-content: center;
     gap: var(--space-sm);
+    overflow-y: auto;
     opacity: 0;
     transform: translateY(0.6rem);
     transition:
@@ -134,6 +126,12 @@ body[data-page="index"] .skip-link:focus-visible {
     font-size: var(--step-1);
     line-height: 1.45;
     color: var(--color-dark-text);
+}
+
+.calibrator__body--minor {
+    font-size: var(--step--1);
+    color: var(--color-dark-text-muted);
+    line-height: 1.55;
 }
 
 .calibrator__progress-label {
@@ -199,11 +197,6 @@ body[data-page="index"] .skip-link:focus-visible {
     color: var(--color-dark-text-muted);
 }
 
-.calibrator__lockup {
-    max-width: min(88vw, 16rem);
-    height: auto;
-    opacity: 0.92;
-}
 
 @media (hover: hover) and (pointer: fine) {
     .calibrator__btn.button:hover:not(:disabled) {

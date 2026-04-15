@@ -1,5 +1,7 @@
 import { ensureUserProfile } from "./storage.js";
 
+const OULM_INLINE = '<span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span>';
+
 export function getAccess() {
     const profile = ensureUserProfile();
     const canHost = Boolean(profile.isVerified || profile.leadershipPathway);
@@ -14,7 +16,7 @@ export function getAccess() {
 export function meetInPersonCopy() {
     return {
         title: "Your next physical step: Woodland Café",
-        body: "Digital RSVP is only a signal. Bring it to the Woodland Café — the third space that is the physical firmware of OULM — for a mentor handshake. That is where Host and Partner Pathways unlock."
+        body: `Digital RSVP is only a signal. Bring it to the Woodland Café — the third space that is the physical firmware of ${OULM_INLINE} — for a mentor handshake. That is where Host and Partner Pathways unlock.`
     };
 }
 
