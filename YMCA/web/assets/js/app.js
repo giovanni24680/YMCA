@@ -24,8 +24,8 @@ import { initLeafletMap } from "./map/leaflet-map.js";
 const body = document.body;
 const page = body.dataset.page;
 
-const OULM_MARK = '<img src="assets/OULM.svg" alt="OULM" class="brand-inline" decoding="async">';
-const YMCA_MARK = '<img src="assets/YMCA.svg" alt="YMCA" class="brand-inline brand-inline--ymca" decoding="async">';
+const OULM_MARK = '<span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span>';
+const YMCA_MARK = '<span class="brand-mark brand-mark--ymca brand-inline brand-inline--ymca" role="img" aria-label="YMCA"></span>';
 
 initExportButtons();
 ensureProgressSeed();
@@ -93,14 +93,6 @@ function initScrollReveal() {
     );
     els.forEach((el) => obs.observe(el));
 
-    /* Parallax: hero scene scrolls slower than content */
-    const heroScene = document.querySelector(".homebase-hero__scene");
-    if (root && heroScene) {
-        root.addEventListener("scroll", () => {
-            const y = root.scrollTop;
-            heroScene.style.transform = `translateY(${y * 0.4}px)`;
-        }, { passive: true });
-    }
 }
 
 function initTabTransitions() {
@@ -147,6 +139,19 @@ function renderHomebase() {
         ? `<div class="card path-banner path-banner--live" data-reveal><span class="eyebrow">Member lane</span><h3 class="path-banner__title">You are in the flow</h3><p class="path-banner__body">Host tools and Partner Pathways are live. The Woodland Café and Leavesden stay your north stars for real-world accountability.</p><div class="cluster" style="margin-top:var(--space-sm)"><a class="button--bronze button" href="host.html">Open Host</a><a class="button--ghost" href="map.html">Venues &amp; map</a></div></div>`
         : `<div class="card path-banner path-banner--awaiting" data-reveal><span class="eyebrow">Path in progress</span><h3 class="path-banner__title">${pathCopy.title}</h3><p class="path-banner__body">${pathCopy.body}</p><p class="path-banner__river-hint" aria-hidden="true">Follow the current → Woodland Café</p><div class="cluster" style="margin-top:var(--space-md)"><a class="button" href="guide.html">How ${OULM_MARK} works</a><a class="button--ghost" href="progress.html#handshake">Handshake unlock</a></div></div>`;
     inject("#homebase-path-slot", pathBanner);
+    const justVerified = window.sessionStorage.getItem("oulm_just_verified") === "1";
+    if (justVerified && access.canHost) {
+        document.querySelector(".path-banner--live")?.classList.add("path-banner--pulse");
+        window.sessionStorage.removeItem("oulm_just_verified");
+    }
+
+    const hostCardClass = access.canHost
+        ? "pillar-nav__card card card--interactive"
+        : "pillar-nav__card card card--interactive pillar-nav__card--sleeping";
+    const hostCardHint = access.canHost ? "Booking wizard" : "Path: Woodland handshake";
+    const hostCardSleepHint = access.canHost
+        ? ""
+        : '<span class="pillar-nav__sleep-hint">Visit HQ to wake this lane</span>';
 
     inject("#homebase-hq-slot", `
         <div class="hq-module" data-reveal>
@@ -189,7 +194,7 @@ function renderHomebase() {
         <div class="pillar-nav__grid">
             <a class="pillar-nav__card card card--interactive" href="events.html"><span class="eyebrow">Discovery</span><strong>Events</strong><p class="pillar-nav__hint">Browse and soft RSVP</p></a>
             <a class="pillar-nav__card card card--interactive" href="map.html"><span class="eyebrow">Regional</span><strong>County map</strong><p class="pillar-nav__hint">Wayfinding along the Ouse corridor</p></a>
-            <a class="pillar-nav__card card card--interactive${access.canHost ? "" : " pillar-nav__card--muted"}" href="host.html"><span class="eyebrow">Leadership</span><strong>Host</strong><p class="pillar-nav__hint">${access.canHost ? "Booking wizard" : "Path: Woodland handshake"}</p></a>
+            <a class="${hostCardClass}" href="host.html"><span class="pillar-nav__card-inner"><span class="eyebrow">Leadership</span><strong>Host</strong><p class="pillar-nav__hint">${hostCardHint}</p></span>${hostCardSleepHint}</a>
             <a class="pillar-nav__card card card--interactive" href="progress.html"><span class="eyebrow">Passport</span><strong>Progress</strong><p class="pillar-nav__hint">Signals and proof</p></a>
         </div>
     `);
@@ -531,6 +536,14 @@ function renderBookingPage() {
             </section>
         `;
         return;
+    }
+
+    const profile = readState(storageKeys.profileSeed, null);
+    const mentorSupport = document.getElementById("booking-mentor-support");
+    if (mentorSupport) {
+        mentorSupport.innerHTML = profile?.ageBand === "14-17"
+            ? `<div class="card card--accent" role="note"><span class="eyebrow">YMCA Mentor Support</span><p style="margin-top:var(--space-xs);font-size:var(--step--1);color:var(--color-ink-muted)">Because this booking is being shaped from the 14-17 onboarding band, review carries a YMCA mentor-support note by default. If any attendee is under 16, a named YMCA mentor must sit inside the room plan before publication.</p></div>`
+            : `<p class="eyebrow" style="color:var(--color-ink-muted)">Age fit, staffing, and room stewardship are checked before anything is published.</p>`;
     }
 
     const draft = readState(storageKeys.bookingDraft, null);

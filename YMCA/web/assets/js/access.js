@@ -1,6 +1,6 @@
 import { ensureUserProfile } from "./storage.js";
 
-const OULM_INLINE = '<img src="assets/OULM.svg" alt="OULM" class="brand-inline" decoding="async">';
+const OULM_INLINE = '<span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span>';
 
 export function getAccess() {
     const profile = ensureUserProfile();

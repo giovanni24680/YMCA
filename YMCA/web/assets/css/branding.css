@@ -1,4 +1,30 @@
-/* OULM × One YMCA wordmarks — use with <img> for literal brand marks. */
+/* OULM × One YMCA wordmarks. Uses SVG masks for color control. */
+
+.brand-mark {
+    display: inline-block;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask-image: var(--brand-src);
+    mask-image: var(--brand-src);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+.brand-mark--oulm {
+    --brand-src: url("../OULM.svg");
+}
+
+.brand-mark--ymca {
+    --brand-src: url("../YMCA.svg");
+}
+
+.brand-mark--lockup {
+    --brand-src: url("../OULM Lockup.svg");
+}
 
 .app-bar__logo-link {
     display: inline-flex;
@@ -9,18 +35,23 @@
     color: inherit;
 }
 
+.app-bar__logo-link .brand-mark,
 .app-bar__logo-link img {
     height: 1.55rem;
-    width: auto;
+    width: 5.45rem;
     display: block;
 }
 
+.app-bar__logo-link--sm .brand-mark,
 .app-bar__logo-link--sm img {
     height: 1.2rem;
+    width: 4.2rem;
 }
 
+.app-bar--with-back .app-bar__logo-link .brand-mark,
 .app-bar--with-back .app-bar__logo-link img {
     height: 1.15rem;
+    width: 4rem;
 }
 
 .brand-lockup-footer {
@@ -32,21 +63,24 @@
     padding: var(--space-md) 0;
 }
 
+.brand-lockup-footer .brand-mark,
 .brand-lockup-footer img {
     height: clamp(1.75rem, 4vw, 2.25rem);
-    width: auto;
+    width: clamp(6rem, 14vw, 7.75rem);
     display: block;
 }
 
+.brand-lockup-footer .brand-lockup-footer__ymca .brand-mark,
 .brand-lockup-footer .brand-lockup-footer__ymca img {
     height: clamp(1.5rem, 3.5vw, 2rem);
+    width: clamp(4.4rem, 10vw, 5.8rem);
 }
 
 /* Inline brand marks within flowing text */
 .brand-inline {
     display: inline-block;
+    width: 2.2em;
     height: 0.72em;
-    width: auto;
     vertical-align: -0.04em;
     margin: 0 0.08em;
 }
@@ -56,6 +90,7 @@
 }
 
 .brand-inline--ymca {
+    width: 1.95em;
     height: 1em;
     vertical-align: -0.12em;
 }

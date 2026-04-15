@@ -47,7 +47,7 @@ export const progressSignals = [
     {
         id: "verified-hours",
         label: "Verified hours",
-        summary: 'One <img src="assets/YMCA.svg" alt="YMCA" class="brand-inline brand-inline--ymca" decoding="async">-backed time spent contributing, volunteering, mentoring, or helping deliver activity.'
+        summary: 'One <span class="brand-mark brand-mark--ymca brand-inline brand-inline--ymca" role="img" aria-label="YMCA"></span>-backed time spent contributing, volunteering, mentoring, or helping deliver activity.'
     },
     {
         id: "project-proof",

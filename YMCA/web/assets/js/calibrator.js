@@ -1,15 +1,21 @@
 import { setCalibratorComplete } from "./storage.js";
 
-const OULM = '<img src="assets/OULM.svg" alt="OULM" class="brand-inline brand-inline--lg" style="filter:brightness(2)" decoding="async">';
+const OULM = '<span class="brand-mark brand-mark--oulm brand-inline brand-inline--lg" role="img" aria-label="OULM"></span>';
 
 const SLIDES = [
     { kicker: "The movement", body: "140 years of connection, now in your pocket." },
-    { kicker: "The third space", body: `The Woodland Café is not just for coffee — it is your HQ. Leavesden Country Park is your lungs. Together they are the physical firmware of ${OULM}.` },
+    { kicker: "The where", body: `The Woodland Café is not just for coffee — it is your HQ. Leavesden Country Park is your lungs. Together they are the physical firmware of ${OULM}.` },
     { kicker: "The who", body: "For the seekers, the leaders, and the families who want accountability that starts with people, not paperwork." },
     { kicker: "The what", body: "Mentoring, hosting, and community action — one current from digital discovery to physical belonging." },
+    { kicker: "The when", body: "Browse, save, and calibrate at any hour. The real unlock happens during Woodland Café hours, when a mentor can know you in the room." },
     { kicker: "The how", body: "Book online. Meet in person. Unlock the city with a handshake, not a ghosted form." },
     { kicker: "The why", body: "Because real connection happens off-screen — and safety here is social currency, not surveillance." },
-    { kicker: "The handshake", body: `Ready to join the ${OULM} flow?`, isFinal: true }
+    {
+        kicker: "The contract",
+        body: `This is an offline-first social contract. Save your intent on your device, bring it to the Woodland Café when you are ready, and let ${OULM} stay a key instead of pretending to be the whole door.`,
+        detail: "The app is your key. The Café is the door.",
+        isFinal: true
+    }
 ];
 
 export function initCalibrator() {
@@ -25,6 +31,7 @@ export function initCalibrator() {
         <article class="calibrator__slide" data-calibrator-slide="${i}" aria-hidden="${i === 0 ? "false" : "true"}">
             <span class="eyebrow calibrator__kicker">${slide.kicker}</span>
             <p class="calibrator__body">${slide.body}</p>
+            ${slide.detail ? `<p class="calibrator__body calibrator__body--minor">${slide.detail}</p>` : ""}
         </article>
     `).join("");
 

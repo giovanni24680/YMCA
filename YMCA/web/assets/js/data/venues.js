@@ -1,7 +1,7 @@
 export const venues = [
     {
         id: "homebase-st-albans",
-        name: 'Woodland Café (<img src="assets/OULM.svg" alt="OULM" class="brand-inline" decoding="async"> HQ)',
+        name: 'Woodland Café (<span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span> HQ)',
         county: "Hertfordshire",
         town: "St Albans",
         kind: "hq",
@@ -22,7 +22,7 @@ export const venues = [
         lng: -0.418,
         address: "Country park gateway, Leavesden",
         amenities: ["Outdoor circles", "Walking loops", "Field-day clearings"],
-        story: 'Open-air HQ for the <img src="assets/OULM.svg" alt="OULM" class="brand-inline" decoding="async"> current: lungs, light, and low-stakes proximity before anyone asks you to host anything.',
+        story: 'Open-air HQ for the <span class="brand-mark brand-mark--oulm brand-inline" role="img" aria-label="OULM"></span> current: lungs, light, and low-stakes proximity before anyone asks you to host anything.',
         nextEventSlug: "show-up-supper-club"
     },
     {

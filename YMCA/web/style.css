@@ -103,6 +103,7 @@ body[data-page="index"] .skip-link:focus-visible {
     display: grid;
     align-content: center;
     gap: var(--space-sm);
+    overflow-y: auto;
     opacity: 0;
     transform: translateY(0.6rem);
     transition:
@@ -125,6 +126,12 @@ body[data-page="index"] .skip-link:focus-visible {
     font-size: var(--step-1);
     line-height: 1.45;
     color: var(--color-dark-text);
+}
+
+.calibrator__body--minor {
+    font-size: var(--step--1);
+    color: var(--color-dark-text-muted);
+    line-height: 1.55;
 }
 
 .calibrator__progress-label {
